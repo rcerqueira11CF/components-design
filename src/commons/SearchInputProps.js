@@ -18,24 +18,10 @@ const styles = {
     boxSizing: "border-box",
     "&:hover": {
       border: "solid 2px #6d6d6d",
-      "& iconButton": {
-        color: "#00c85f",
-        padding: 4
-      }
     },
     "&:focus-within": {
       border: "solid 2px #00c85f",
-      "~ iconButton": {
-        color: "red"
-      }
     }
-  },
-  input: {
-    marginLeft: "23px",
-    flex: 1,
-    "&:hover ~ IconButton":{
-      color:'red',
-   },
   },
   iconButton: {
     marginRight: "1px",
@@ -43,8 +29,17 @@ const styles = {
     "&:focus-within": {
       color: "white",
       backgroundColor: '#00c85f',
-    }
-  }
+      padding: 2,
+      marginRight: "2px",
+    },
+  },
+  input: {
+    marginLeft: "23px",
+    flex: 1,
+    "&:hover":{
+      marginLeft: "22px",
+    },
+  },
 };
 
 function hello() {
