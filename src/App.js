@@ -6,6 +6,8 @@ import Box from '@material-ui/core/Box';
 // import ProTip from './ProTip';
 import PrincipalBtn from './commons/PrincipalBtn'
 import SecondaryBtn from './commons/SecondaryBtn'
+import ThirdBtn from './commons/ThirdBtn'
+import SearchInput from './commons/SearchInput';
 require('typeface-montserrat');
 
 
@@ -26,13 +28,13 @@ require('typeface-montserrat');
 export default function App() {
   return (
     <Container maxWidth="sm">
-      <Box my={4}>
+      <Box my={8}>
         <Typography variant="h4" component="h1" gutterBottom>
           Comunidad Feliz Nuevos Diseños
         </Typography>
         {/* <ProTip /> */}
       </Box>
-      <Box my={4}>
+      <Box my={2}>
         <div>
           <PrincipalBtn
               label="Nuevo pago"
@@ -53,6 +55,24 @@ export default function App() {
               label="Nuevo pago"
               disabled
               />
+        </div>
+        <br></br>
+        <div>
+          <ThirdBtn
+              label="Nuevo pago"
+              />
+          &nbsp;
+          <ThirdBtn
+              label="Nuevo pago"
+              disabled
+              />
+        </div>
+        <br></br>
+        <div>
+          <SearchInput
+              label="Nuevo pago"
+              />
+          &nbsp;
         </div>
         <br></br>
 

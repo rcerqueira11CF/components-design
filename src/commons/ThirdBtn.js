@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import ThirdBtnIcon from '../icons/ThirdBtnIcon';
+import Button from '@material-ui/core/Button';
+import FilterListIcon from '@material-ui/icons/FilterList';
 
 class ThirdBtn extends Component {
   constructor(props) {
@@ -9,7 +10,7 @@ class ThirdBtn extends Component {
     };
     this.onHoverAction = this.onHoverAction.bind(this);
     this.onHoverOutAction = this.onHoverOutAction.bind(this);
-    this.btnInfo = this.btnInfo.bind(this);
+    // this.btnInfo = this.btnInfo.bind(this);
   }
 
   onHoverAction(){
@@ -20,11 +21,11 @@ class ThirdBtn extends Component {
     this.setState({isHovering: false});
   }
 
-  btnInfo(){
-    return(
-      <span><ThirdBtnIcon /> {this.props.label}</span>
-    )
-  }
+  // btnInfo(){
+  //   return(
+  //     <span><ThirdBtnIcon /> {this.props.label}</span>
+  //   )
+  // }
 
   render() {
     const styles = {
@@ -68,15 +69,16 @@ class ThirdBtn extends Component {
       }
     };
     return (
-      <button
+      <Button
         onMouseOver={this.onHoverAction}
         onMouseOut={this.onHoverOutAction}
         className="btn btn-default"
         disabled={this.props.disabled}
         style={this.state.isHovering ? styles.hoverButtonStyle : styles.buttonStyle}
         onClick={this.props.handleClick}>
-        <ThirdBtnIcon /> {this.props.label}
-      </button>
+        <FilterListIcon />
+        {this.props.label}
+      </Button>
     );
   }
 }

@@ -1,115 +1,44 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import SearchBtnIcon from '../icons/SearchBtnIcon';
-
+import Paper from '@material-ui/core/Paper';
+import InputBase from '@material-ui/core/InputBase';
+import IconButton from '@material-ui/core/IconButton';
+import SearchIcon from '@material-ui/icons/Search';
 
 const useStyles = makeStyles(theme => ({
-  searchField: {
-    width: 250,
-    height: 35,
-    border: 'solid 2px #00c85f'
-  }
-  // buttonStyle:{
-  //   display: 'flex',
-  //   padding: 0,
-  //   justifyContent: 'space-evenly',
-  //   alignItems: 'center',
-  //   width: 250,
-  //   height: 35,
-  //   borderRadius: 20,
-  //   border: ' solid 0.5px #6d6d6d',
-  //   color: '#6d6d6d',
-  //   fontFamily: 'Montserrat',
-  //   fontSize: 16,
-  //   fontWeight: 600,
-  //   fontStyle: 'normal',
-  //   fontStretch: 'normal',
-  //   lineHeight: 0.61,
-  //   letterSpacing: 'normal',
-  //   backgroundColor: '#ffffff'
-  // },
-  // hoverButtonStyle:{
-  //   display: 'flex',
-  //   padding: 0,
-  //   justifyContent: 'space-evenly',
-  //   alignItems: 'center',
-  //   color: '#6d6d6d',
-  //   width: 250,
-  //   height: 35,
-  //   borderRadius: 20,
-  //   border: ' solid 0.5px #6d6d6d',
-  //   fontFamily: 'Montserrat',
-  //   fontSize: 16,
-  //   fontWeight: 600,
-  //   fontStyle: 'normal',
-  //   fontStretch: 'normal',
-  //   lineHeight: 0.61,
-  //   letterSpacing: 'normal',
-  //   backgroundColor: '#eaeaea'
-  // },
+  root: {
+    width: '250px',
+    height: '35px',
+    display: 'flex',
+    alignItems: 'center',
+    borderRadius: '18px',
+    border: 'solid 0.5px #6d6d6d',
+    boxShadow: 'none',
+  },
+  input: {
+    marginLeft: theme.spacing(3),
+    flex: 1,
+  },
+  iconButton: {
+    marginRight: theme.spacing(0.5),
+    padding: 5,
+  },
 }));
 
-class SearchInput extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      isHovering: false,
-      value: ''
-    };
+export default function SearchBtn() {
+  const classes = useStyles();
 
-    this.handleChange = this.handleChange.bind(this);
-    this.onHoverAction = this.onHoverAction.bind(this);
-    this.onHoverOutAction = this.onHoverOutAction.bind(this);
-    this.btnInfo = this.btnInfo.bind(this);
-  }
-
-  onHoverAction(){
-    this.setState({isHovering: true});
-  }
-
-  onHoverOutAction(){
-    this.setState({isHovering: false});
-  }
-
-  handleChange(event) {
-    this.setState({value: event.target.value});
-  }
-
-  btnPlaceholder(){
-    const insideBtnStyle = {
-
-    };
-    return(
-      <span>
-        <SearchBtnIcon /> {this.props.label}</span>
-    );
-  }
-
-
-
-  render() {
-    const styles = useStyles;
-    return (
-      <TextField
-        id="outlined-bare"
-        className={styles.searchField}
-        defaultValue="Bare"
-        margin="normal"
-        variant="outlined"
-        inputProps={{ 'aria-label': 'bare' }}
+  return (
+    <Paper className={classes.root}>
+      <InputBase
+        className={classes.input}
+        placeholder="Buscar"
+        inputProps={{ 'aria-label': 'search google maps' }}
       />
-      // <input
-      //   onMouseOver={this.onHoverAction}
-      //   onMouseOut={this.onHoverOutAction}
-      //   disabled={this.props.disabled}
-      //   classNameL="input"
-      //   value={this.state.value}
-      //   onChange={this.handleChange}
-      //   style={this.state.isHovering ? styles.hoverButtonStyle : styles.buttonStyle}
-      //   placeholder="Buscar"
-      // />
-    );
-  }
-}
+      <IconButton className={classes.iconButton} aria-label="search">
+        <SearchIcon />
+      </IconButton>
 
-export default SearchInput;
+    </Paper>
+  );
+}
