@@ -1,11 +1,13 @@
-import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import Paper from '@material-ui/core/Paper';
 import InputBase from '@material-ui/core/InputBase';
+import { withStyles } from '@material-ui/styles';
 import IconButton from '@material-ui/core/IconButton';
 import SearchIcon from '@material-ui/icons/Search';
 
-const useStyles = makeStyles(theme => ({
+
+const styles = {
   root: {
     width: '250px',
     height: '35px',
@@ -24,30 +26,44 @@ const useStyles = makeStyles(theme => ({
     }
   },
   input: {
-    marginLeft: theme.spacing(3),
+    marginLeft: '10px',
     flex: 1,
   },
   iconButton: {
-    marginRight: theme.spacing(0.5),
+    marginRight: '0.5px',
     padding: 5,
   },
-}));
+};
 
-export default function SearchBtn() {
-  const classes = useStyles();
+function SearchInputProps(props) {
 
+  const {
+    classes,
+    disabled,
+    placeholder
+  } = props;
   return (
     <Paper className={classes.root}>
       <InputBase
         className={classes.input}
-        placeholder="Buscar"
+        placeholder={placeholder}
         inputProps={{ 'aria-label': 'search google maps' }}
-        disable={this.props.disabled}
+        disable={disabled}
       />
       <IconButton className={classes.iconButton} aria-label="search">
         <SearchIcon />
       </IconButton>
 
     </Paper>
-  );
+  )
 }
+
+SearchInputProps.propTypes = {
+  classes: PropTypes.object.isRequired,
+};
+
+export default withStyles(styles)(SearchInputProps);
+
+
+
+

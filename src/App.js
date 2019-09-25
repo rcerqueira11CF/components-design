@@ -7,7 +7,7 @@ import Box from '@material-ui/core/Box';
 import PrincipalBtn from './commons/PrincipalBtn'
 import SecondaryBtn from './commons/SecondaryBtn'
 import ThirdBtn from './commons/ThirdBtn'
-import SearchInput from './commons/SearchInput';
+import SearchInputProps from './commons/SearchInputProps';
 require('typeface-montserrat');
 
 
@@ -69,10 +69,14 @@ export default function App() {
         </div>
         <br></br>
         <div>
-          <SearchInput
-              label="Nuevo pago"
+          <SearchInputProps
+              placeholder="Buscar"
               />
           &nbsp;
+          <SearchInputProps
+              placeholder="Buscar"
+              disabled
+              />
         </div>
         <br></br>
 
