@@ -26,7 +26,7 @@ const styles = {
     }
   },
   input: {
-    marginLeft: '10px',
+    marginLeft: '23px',
     flex: 1,
   },
   iconButton: {
@@ -48,9 +48,9 @@ function SearchInputProps(props) {
         className={classes.input}
         placeholder={placeholder}
         inputProps={{ 'aria-label': 'search google maps' }}
-        disable={disabled}
+        disabled={disabled}
       />
-      <IconButton className={classes.iconButton} aria-label="search">
+      <IconButton className={classes.iconButton} aria-label="search" disabled={disabled}>
         <SearchIcon />
       </IconButton>
 
