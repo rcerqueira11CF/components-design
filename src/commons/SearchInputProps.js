@@ -21,7 +21,8 @@ const styles = {
     },
     "&:focus-within": {
       border: "solid 2px #00c85f",
-    }
+    },
+
   },
   iconButton: {
     marginRight: "1px",
@@ -36,33 +37,34 @@ const styles = {
   input: {
     marginLeft: "23px",
     flex: 1,
+    "&:focus-within": {
+      marginLeft: "22px",
+    },
     "&:hover":{
       marginLeft: "22px",
     },
   },
 };
 
-function hello() {
-  console.log("aaa");
-}
+
+
 
 function SearchInputProps(props) {
-  const { classes, disabled, placeholder } = props;
+  const { classes, disabled, placeholder, onClick } = props;
 
   return (
     <Paper className={classes.root}>
       <InputBase
         className={classes.input}
-        placeholder="Buscar"
+        placeholder={placeholder}
         inputProps={{ "aria-label": "search google maps" }}
         disabled={disabled}
 
       />
       <IconButton
         className={classes.iconButton}
-        aria-label="search"
         disabled={disabled}
-        onClick={hello}
+        onClick={onClick}
       >
         <SearchIcon />
       </IconButton>

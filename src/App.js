@@ -25,6 +25,10 @@ require('typeface-montserrat');
 //   );
 // }
 
+function hello() {
+  console.log("aaa");
+}
+
 export default function App() {
   return (
     <Container maxWidth="sm">
@@ -71,10 +75,12 @@ export default function App() {
         <div>
           <SearchInputProps
               placeholder="Buscar"
+              onClick={hello}
               />
           &nbsp;
           <SearchInputProps
               placeholder="Buscar"
+              onClick={hello}
               disabled
               />
         </div>
