@@ -14,6 +14,14 @@ const useStyles = makeStyles(theme => ({
     borderRadius: '18px',
     border: 'solid 0.5px #6d6d6d',
     boxShadow: 'none',
+    boxSizing: 'border-box',
+    "&:hover": {
+      border: "solid 2px #6d6d6d",
+      "& iconButton": {
+        backgroundColor: 'green',
+        padding: 4,
+      }
+    }
   },
   input: {
     marginLeft: theme.spacing(3),
