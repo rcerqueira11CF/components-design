@@ -17,7 +17,7 @@ const styles = {
       color: '#6b6b6b',
       opacity: 0.6,
     },
-    "&:active":{
+    "&:active, &:focus":{
       boxShadow: 'none',
     }
   },

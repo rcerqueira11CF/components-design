@@ -5,26 +5,26 @@ import Fab from '@material-ui/core/Fab';
 
 const styles = {
   root: {
-    color: '#0ecb68',
-    border: 'solid 1px #0ecb68',
-    backgroundColor: '#ffffff',
+    color: '#6b6b6b',
+    border: 'solid 1px #6b6b6b',
+    backgroundColor: '#ff6169',
     boxShadow: 'none',
+    palette: { primary: 'red' },
     "&:hover":{
-      backgroundColor: 'eaeaea'
+      backgroundColor: '#ffc0c3'
     },
     "&:disabled":{
-      backgroundColor: '#ffffff',
-      color: '#0ecb68',
+      backgroundColor: '#ff6169',
+      color: '#6b6b6b',
       opacity: 0.6,
     },
     "&:active, &:focus":{
       boxShadow: 'none',
-
     }
   },
 };
 
-function PrimaryCircleBtn(props) {
+function DefaultCircleBtn(props) {
   const {
     classes,
     onClick,
@@ -40,12 +40,14 @@ function PrimaryCircleBtn(props) {
     onClick={onClick}
     disabled={disabled}>
     {iconBtn}
+
     </Fab>
   )
 }
 
-PrimaryCircleBtn.propTypes = {
+DefaultCircleBtn.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(PrimaryCircleBtn);
+export default withStyles(styles)(DefaultCircleBtn
+);

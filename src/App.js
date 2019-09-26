@@ -11,12 +11,27 @@ import SearchInputProps from './commons/SearchInputProps';
 import DefaultCircleBtn from './commons/DefaultCircleBtn';
 import PrimaryCircleBtn from './commons/PrimaryCircleBtn';
 import OptionFilterLink from './commons/OptionFilterLink';
+import DangerCircleBtn from './commons/DangerCircleBtn';
 import GetAppIcon from '@material-ui/icons/GetApp';
+import DeleteForeverOutlinedIcon from '@material-ui/icons/DeleteForeverOutlined';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
+import { makeStyles } from '@material-ui/core/styles';
+import Grid from '@material-ui/core/Grid';
 
 require('typeface-montserrat');
 
-
+const useStyles = makeStyles(theme => ({
+  root: {
+    flexGrow: 1,
+  },
+  paper: {
+    height: 140,
+    width: 100,
+  },
+  control: {
+    padding: theme.spacing(2),
+  },
+}));
 
 // function Copyright() {
 //   return (
@@ -37,14 +52,12 @@ function hello() {
 
 export default function App() {
   return (
-    <Container maxWidth="sm">
-      <Box my={8}>
-        <Typography variant="h4" component="h1" gutterBottom>
-          Comunidad Feliz Nuevos Diseños
-        </Typography>
-        {/* <ProTip /> */}
-      </Box>
-      <Box my={2}>
+  <Container>
+    <Typography variant="h4" component="h1" gutterBottom>
+        Comunidad Feliz Nuevos Diseños
+    </Typography>
+    <Grid container spacing={12} >
+        <Grid item xs={4} md={3}>
         <div>
           <PrincipalBtn
               label="Nuevo pago"
@@ -103,6 +116,17 @@ export default function App() {
               onClick={hello}
               disabled
               />
+          &nbsp;
+          <DangerCircleBtn
+              iconBtn={<DeleteForeverOutlinedIcon />}
+              onClick={hello}
+              />
+          &nbsp;
+          <DangerCircleBtn
+              iconBtn={<DeleteForeverOutlinedIcon />}
+              onClick={hello}
+              disabled
+              />
         </div>
         <br></br>
         <div>
@@ -131,8 +155,11 @@ export default function App() {
               />
         </div>
         <br></br>
-
-      </Box>
-    </Container>
+        </Grid>
+        <Grid item xs={8} md={9}>
+          AAAAAAAAAAA
+        </Grid>
+      </Grid>
+  </Container>
   );
 }
