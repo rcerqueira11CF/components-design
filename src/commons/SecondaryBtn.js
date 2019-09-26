@@ -24,6 +24,10 @@ const styles = {
     "&:hover":{
       backgroundColor: '#eaeaea',
     },
+    "&:disabled":{
+      color: '#0ecb68',
+      opacity: 0.4,
+    }
   },
 };
 

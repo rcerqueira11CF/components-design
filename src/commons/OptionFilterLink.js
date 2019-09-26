@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/styles';
-import Button from '@material-ui/core/Button';
+import Link from '@material-ui/core/Link';
 
 const styles = {
   root: {
@@ -9,29 +9,36 @@ const styles = {
     justifyContent: 'center',
     width: 250,
     height: 35,
-    borderRadius: 20,
-    border: 0,
-    color: '#ffffff',
+    color: '6d6d6d',
+    borderRadius: 5,
+    border: 'solid 1px #00c85f',
     fontFamily: 'Montserrat',
     fontSize: 18,
-    fontWeight: 600,
+    fontWeight: 'normal',
     fontStyle: 'normal',
     fontStretch: 'normal',
-    lineHeight: 0.61,
+    lineHeight: 0.73,
     letterSpacing: 'normal',
+    textAlign: 'center',
     textTransform: 'none',
-    backgroundColor: '#00c85f',
+    backgroundColor: '#white',
+    textDecoration: 'none',
     "&:hover":{
-      backgroundColor: '#006630',
+      backgroundColor: '#ccf4df',
+      textDecoration: 'none',
+    },
+    "&:active":{
+      fontWeight: 'bold',
+      textDecoration: 'none',
     },
     "&:disabled":{
       color: '#ffffff',
       opacity: 0.4,
-    }
+    },
   },
 };
 
-function PrincipalBtn(props) {
+function OptionFilterLink(props) {
   const {
     classes,
     label,
@@ -39,16 +46,18 @@ function PrincipalBtn(props) {
     disabled
   } = props;
   return (
-  <Button
+  <Link
+    component="button"
+    color="default"
     className={classes.root}
     onClick={handleClick}
     disabled={disabled}>
     {label}
-  </Button>);
+  </Link>);
 }
 
-PrincipalBtn.propTypes = {
+OptionFilterLink.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(PrincipalBtn);
+export default withStyles(styles)(OptionFilterLink);

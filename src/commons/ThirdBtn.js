@@ -1,5 +1,4 @@
 import React from 'react';
-import clsx from 'clsx';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/styles';
 import Button from '@material-ui/core/Button';
@@ -47,7 +46,7 @@ function ThirdBtn(props) {
     className={classes.root}
     onClick={handleClick}
     disabled={disabled}>
-    <FilterListIcon className={classes.leftIcon} fontSize='large' shape-rendering="geometricPrecision" />
+    <FilterListIcon className={classes.leftIcon} fontSize='medium' shape-rendering="geometricPrecision" />
     {label}
   </Button>);
 }

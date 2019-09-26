@@ -8,6 +8,11 @@ import PrincipalBtn from './commons/PrincipalBtn'
 import SecondaryBtn from './commons/SecondaryBtn'
 import ThirdBtn from './commons/ThirdBtn'
 import SearchInputProps from './commons/SearchInputProps';
+import DefaultDownloadBtn from './commons/DefaultDownloadBtn';
+import TableDownloadBtn from './commons/TableDownloadBtn';
+import GetAppIcon from '@material-ui/icons/GetApp';
+import MoreVertIcon from '@material-ui/icons/MoreVert';
+
 require('typeface-montserrat');
 
 
@@ -81,6 +86,32 @@ export default function App() {
           &nbsp;
           <SearchInputProps
               placeholder="Buscar"
+              onClick={hello}
+              disabled
+              />
+        </div>
+        <br></br>
+        <div>
+          <DefaultDownloadBtn
+              iconBtn={<GetAppIcon />}
+              onClick={hello}
+              />
+          &nbsp;
+          <DefaultDownloadBtn
+              iconBtn={<GetAppIcon />}
+              onClick={hello}
+              disabled
+              />
+        </div>
+        <br></br>
+        <div>
+          <TableDownloadBtn
+              iconBtn={<MoreVertIcon />}
+              onClick={hello}
+              />
+          &nbsp;
+          <TableDownloadBtn
+              iconBtn={<MoreVertIcon />}
               onClick={hello}
               disabled
               />
