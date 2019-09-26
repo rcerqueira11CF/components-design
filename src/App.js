@@ -8,8 +8,9 @@ import PrincipalBtn from './commons/PrincipalBtn'
 import SecondaryBtn from './commons/SecondaryBtn'
 import ThirdBtn from './commons/ThirdBtn'
 import SearchInputProps from './commons/SearchInputProps';
-import DefaultDownloadBtn from './commons/DefaultDownloadBtn';
-import TableDownloadBtn from './commons/TableDownloadBtn';
+import DefaultCircleBtn from './commons/DefaultCircleBtn';
+import PrimaryCircleBtn from './commons/PrimaryCircleBtn';
+import OptionFilterLink from './commons/OptionFilterLink';
 import GetAppIcon from '@material-ui/icons/GetApp';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
 
@@ -92,12 +93,12 @@ export default function App() {
         </div>
         <br></br>
         <div>
-          <DefaultDownloadBtn
+          <DefaultCircleBtn
               iconBtn={<GetAppIcon />}
               onClick={hello}
               />
           &nbsp;
-          <DefaultDownloadBtn
+          <DefaultCircleBtn
               iconBtn={<GetAppIcon />}
               onClick={hello}
               disabled
@@ -105,13 +106,26 @@ export default function App() {
         </div>
         <br></br>
         <div>
-          <TableDownloadBtn
+          <PrimaryCircleBtn
               iconBtn={<MoreVertIcon />}
               onClick={hello}
               />
           &nbsp;
-          <TableDownloadBtn
+          <PrimaryCircleBtn
               iconBtn={<MoreVertIcon />}
+              onClick={hello}
+              disabled
+              />
+        </div>
+        <br></br>
+        <div>
+          <OptionFilterLink
+              label="Filter link"
+              onClick={hello}
+              />
+          &nbsp;
+          <OptionFilterLink
+              label="Filter link"
               onClick={hello}
               disabled
               />

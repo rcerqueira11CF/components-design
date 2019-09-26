@@ -15,12 +15,12 @@ const styles = {
     border: "solid 0.5px #6d6d6d",
     boxShadow: "none",
     boxSizing: "border-box",
-    "&:hover": {
+    "&:hover:enabled": {
       border: "solid 2px #6d6d6d",
     },
     "&:focus-within": {
       border: "solid 2px #00c85f",
-    },
+    }
 
   },
   input: {
@@ -31,7 +31,7 @@ const styles = {
     },
     "&:focus-within": {
       marginLeft: "22px",
-    },
+    }
 
   },
   iconButton: {

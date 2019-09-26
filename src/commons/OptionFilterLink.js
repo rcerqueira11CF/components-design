@@ -23,7 +23,7 @@ const styles = {
     textTransform: 'none',
     backgroundColor: '#white',
     textDecoration: 'none',
-    "&:hover":{
+    "&:hover:enabled":{
       backgroundColor: '#ccf4df',
       textDecoration: 'none',
     },
@@ -32,8 +32,9 @@ const styles = {
       textDecoration: 'none',
     },
     "&:disabled":{
-      color: '#ffffff',
       opacity: 0.4,
+      textDecoration: 'none',
+      pointerEvents: 'none',
     },
   },
 };

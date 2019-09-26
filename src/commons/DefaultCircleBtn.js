@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/styles';
-import GetAppIcon from '@material-ui/icons/GetApp';
 import Fab from '@material-ui/core/Fab';
 
 const styles = {
@@ -24,7 +23,7 @@ const styles = {
   },
 };
 
-function DefaultDownloadBtn(props) {
+function DefaultCircleBtn(props) {
   const {
     classes,
     onClick,
@@ -45,9 +44,9 @@ function DefaultDownloadBtn(props) {
   )
 }
 
-DefaultDownloadBtn.propTypes = {
+DefaultCircleBtn.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(DefaultDownloadBtn
+export default withStyles(styles)(DefaultCircleBtn
 );

@@ -23,7 +23,7 @@ const styles = {
   },
 };
 
-function TableDownloadBtn(props) {
+function PrimaryCircleBtn(props) {
   const {
     classes,
     onClick,
@@ -43,8 +43,8 @@ function TableDownloadBtn(props) {
   )
 }
 
-TableDownloadBtn.propTypes = {
+PrimaryCircleBtn.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(TableDownloadBtn);
+export default withStyles(styles)(PrimaryCircleBtn);
