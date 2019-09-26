@@ -1,4 +1,5 @@
 import React from 'react';
+import clsx from 'clsx';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/styles';
 import Button from '@material-ui/core/Button';
@@ -8,7 +9,7 @@ const styles = {
   root: {
     display: 'flex',
     padding: 0,
-    justifyContent: 'space-evenly',
+    justifyContent: 'flex-start',
     alignItems: 'center',
     width: 250,
     height: 35,
@@ -26,8 +27,12 @@ const styles = {
     textTransform: 'none',
     "&:hover":{
        backgroundColor: '#eaeaea',
-    },
+    }
   },
+  leftIcon:{
+    marginLeft: 23,
+    marginRight: 27,
+  }
 };
 
 function ThirdBtn(props) {
@@ -42,6 +47,7 @@ function ThirdBtn(props) {
     className={classes.root}
     onClick={handleClick}
     disabled={disabled}>
+    <FilterListIcon className={classes.leftIcon} fontSize='large' shape-rendering="geometricPrecision" />
     {label}
   </Button>);
 }
