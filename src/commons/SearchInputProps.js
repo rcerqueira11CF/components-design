@@ -5,7 +5,6 @@ import InputBase from "@material-ui/core/InputBase";
 import { withStyles } from "@material-ui/styles";
 import IconButton from "@material-ui/core/IconButton";
 import SearchIcon from "@material-ui/icons/Search";
-
 const styles = {
   root: {
     width: "250px",
@@ -24,6 +23,17 @@ const styles = {
     },
 
   },
+  input: {
+    marginLeft: "23px",
+    flex: 1,
+    "&:hover":{
+      marginLeft: "22px",
+    },
+    "&:focus-within": {
+      marginLeft: "22px",
+    },
+
+  },
   iconButton: {
     marginRight: "1px",
     padding: 4,
@@ -34,18 +44,7 @@ const styles = {
       marginRight: "2px",
     },
   },
-  input: {
-    marginLeft: "23px",
-    flex: 1,
-    "&:focus-within": {
-      marginLeft: "22px",
-    },
-    "&:hover":{
-      marginLeft: "22px",
-    },
-  },
 };
-
 
 
 
