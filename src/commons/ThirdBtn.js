@@ -1,86 +1,53 @@
-import React, { Component } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
+import { withStyles } from '@material-ui/styles';
 import Button from '@material-ui/core/Button';
 import FilterListIcon from '@material-ui/icons/FilterList';
 
-class ThirdBtn extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      isHovering: false
-    };
-    this.onHoverAction = this.onHoverAction.bind(this);
-    this.onHoverOutAction = this.onHoverOutAction.bind(this);
-    // this.btnInfo = this.btnInfo.bind(this);
-  }
+const styles = {
+  root: {
+    display: 'flex',
+    padding: 0,
+    justifyContent: 'space-evenly',
+    alignItems: 'center',
+    width: 250,
+    height: 35,
+    borderRadius: 20,
+    border: ' solid 0.5px #6d6d6d',
+    color: '#6d6d6d',
+    fontFamily: 'Montserrat',
+    fontSize: 16,
+    fontWeight: 600,
+    fontStyle: 'normal',
+    fontStretch: 'normal',
+    lineHeight: 0.61,
+    letterSpacing: 'normal',
+    backgroundColor: '#ffffff',
+    textTransform: 'none',
+    "&:hover":{
+       backgroundColor: '#eaeaea',
+    },
+  },
+};
 
-  onHoverAction(){
-    this.setState({isHovering: true});
-  }
-
-  onHoverOutAction(){
-    this.setState({isHovering: false});
-  }
-
-  // btnInfo(){
-  //   return(
-  //     <span><ThirdBtnIcon /> {this.props.label}</span>
-  //   )
-  // }
-
-  render() {
-    const styles = {
-      buttonStyle:{
-        display: 'flex',
-        padding: 0,
-        justifyContent: 'space-evenly',
-        alignItems: 'center',
-        width: 250,
-        height: 35,
-        borderRadius: 20,
-        border: ' solid 0.5px #6d6d6d',
-        color: '#6d6d6d',
-        fontFamily: 'Montserrat',
-        fontSize: 16,
-        fontWeight: 600,
-        fontStyle: 'normal',
-        fontStretch: 'normal',
-        lineHeight: 0.61,
-        letterSpacing: 'normal',
-        backgroundColor: '#ffffff'
-      },
-      hoverButtonStyle:{
-        display: 'flex',
-        padding: 0,
-        justifyContent: 'space-evenly',
-        alignItems: 'center',
-        color: '#6d6d6d',
-        width: 250,
-        height: 35,
-        borderRadius: 20,
-        border: ' solid 0.5px #6d6d6d',
-        fontFamily: 'Montserrat',
-        fontSize: 16,
-        fontWeight: 600,
-        fontStyle: 'normal',
-        fontStretch: 'normal',
-        lineHeight: 0.61,
-        letterSpacing: 'normal',
-        backgroundColor: '#eaeaea'
-      }
-    };
-    return (
-      <Button
-        onMouseOver={this.onHoverAction}
-        onMouseOut={this.onHoverOutAction}
-        className="btn btn-default"
-        disabled={this.props.disabled}
-        style={this.state.isHovering ? styles.hoverButtonStyle : styles.buttonStyle}
-        onClick={this.props.handleClick}>
-        <FilterListIcon />
-        {this.props.label}
-      </Button>
-    );
-  }
+function ThirdBtn(props) {
+  const {
+    classes,
+    label,
+    handleClick,
+    disabled
+  } = props;
+  return (
+  <Button
+    className={classes.root}
+    onClick={handleClick}
+    disabled={disabled}>
+    {label}
+  </Button>);
 }
 
-export default ThirdBtn;
+ThirdBtn.propTypes = {
+  classes: PropTypes.object.isRequired,
+};
+
+export default withStyles(styles)(ThirdBtn);

@@ -26,7 +26,7 @@ require('typeface-montserrat');
 // }
 
 function hello() {
-  console.log("aaa");
+  alert("aaa");
 }
 
 export default function App() {
@@ -42,6 +42,7 @@ export default function App() {
         <div>
           <PrincipalBtn
               label="Nuevo pago"
+              handleClick={hello}
               />
           &nbsp;
           <PrincipalBtn
