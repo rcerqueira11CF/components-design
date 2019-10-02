@@ -5,8 +5,6 @@ import { withStyles } from '@material-ui/styles';
 import CustomTabBox from './CustomTabBox';
 import Divider from './DivDivider';
 
-// this bar provides the use of onclick in their customTabBox
-
 const styles = {
   root: {
     padding: 16,
@@ -16,33 +14,36 @@ const styles = {
   }
 };
 
+const boxGenerator = (boxInfo) =>{
+  return (
+    <CustomTabBox
+      key= {boxInfo.id}
+      titleText = {boxInfo.titleText}
+      amountText = {boxInfo.amountText}
+      tooltip = {boxInfo.tooltip}
+      placement = {boxInfo.placement}
+      />
+  )
+}
+const returnSize = (arr) =>{
+  return arr.length
+}
+const setDivider = (index, size) =>{
+  if (size !== 1 && index !== size-1) {
+    return (<Divider />)
+  }
+}
+
+
 function CustomBar(props) {
   const {
     classes,
+    boxInfos
   } = props;
+
   return (
     <Paper className={classes.root}>
-      <CustomTabBox
-        titleText = 'Diciembre'
-        amountText = '$4.009.271'
-        tooltip="Dec"
-        placement="right"
-      />
-
-      <Divider />
-      <CustomTabBox
-        titleText = 'Enero'
-        amountText = '$6.783.210'
-        tooltip="Ene"
-        placement="left"
-      />
-      <Divider />
-      <CustomTabBox
-        titleText = 'Febrero'
-        amountText = '$5.892.000'
-        tooltip="Feb"
-        placement="right"
-      />
+       {boxInfos.map((boxInfo, index) => {return ([boxGenerator(boxInfo), setDivider(index, returnSize(boxInfos))])})}
      </Paper>
   );
 }

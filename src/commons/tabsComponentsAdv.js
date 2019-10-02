@@ -1,11 +1,14 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { withStyles } from '@material-ui/styles';
-import AppBar from '@material-ui/core/AppBar';
-import Tabs from '@material-ui/core/Tabs';
-import Tab from '@material-ui/core/Tab';
-import Typography from '@material-ui/core/Typography';
-import Box from '@material-ui/core/Box';
+import React from "react";
+import PropTypes from "prop-types";
+import { withStyles } from "@material-ui/styles";
+import clsx from 'clsx';
+import AppBar from "@material-ui/core/AppBar";
+import Tabs from "@material-ui/core/Tabs";
+import Tab from "@material-ui/core/Tab";
+import Typography from "@material-ui/core/Typography";
+import Box from "@material-ui/core/Box";
+import CustomTable from "./table";
+import Divider from '@material-ui/core/Divider';
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -19,7 +22,7 @@ function TabPanel(props) {
       aria-labelledby={`simple-tab-${index}`}
       {...other}
     >
-      <Box p={1}>{children}</Box>
+      <Box mt={2}>{children}</Box>
     </Typography>
   );
 }
@@ -27,38 +30,67 @@ function TabPanel(props) {
 TabPanel.propTypes = {
   children: PropTypes.node,
   index: PropTypes.any.isRequired,
-  value: PropTypes.any.isRequired,
+  value: PropTypes.any.isRequired
 };
 
 function a11yProps(index) {
   return {
     id: `simple-tab-${index}`,
-    'aria-controls': `simple-tabpanel-${index}`,
+    "aria-controls": `simple-tabpanel-${index}`
   };
 }
 
 const styles = {
   root: {
     flexGrow: 1,
-    backgroundColor: 'inherit',
+    backgroundColor: "inherit"
+  },
+  upperIndicator: {
+    top: 0,
+    backgroundColor: "#00c85f"
+  },
+  tabStyle:{
+    height: '12',
+  },
+  tabBar: {
+    backgroundColor: '#eaeaea',
+    height: '12',
+    minHeight: '12',
+    //borderBottom: '0.1em solid #6d6d6d',
+    //'&:focus-within': {
+    //borderBottom: 'none'
+    //}
+  },
+  centerTab: {
+    borderBottom: '0.1em solid #6d6d6d',
+    transitionProperty: 'borderBottom',
+    transitionDuration: '8s',
+    '&:focus': {
+      borderRight: '0.1em solid #6d6d6d',
+      borderLeft: '0.1em solid #6d6d6d',
+      borderBottom: 'none',
+    }
 
   },
-  upperIndicator:{
-    top: 0,
-    backgroundColor: '#00c85f',
+  firstTab: {
+    borderBottom: '0.1em solid #6d6d6d',
+    '&:focus': {
+     borderRight: '0.1em solid #6d6d6d',
+      borderBottom: '0'
+    },
+    '&:selected': {
+     borderRight: '0.1em solid #6d6d6d',
+     borderBottom: '0'
+    }
+
   },
-  default_tab:{
-    color: 'gray',
-    backgroundColor: 'black',
-    fontWeight: 400,
-  },
-  active_tab:{
-    color: 'blue',
+  active_tab: {
+    color: "blue"
   }
 };
 
 function SimpleTabs(props) {
-  const {classes} = props;
+  const { classes } = props;
   const [value, setValue] = React.useState(0);
 
   const handleChange = (event, newValue) => {
@@ -68,19 +100,25 @@ function SimpleTabs(props) {
   return (
     <div className={classes.root}>
 
-        <Tabs value={value}
-        onChange={handleChange}
-        aria-label="simple tabs example"
-        classes={{ indicator: classes.upperIndicator }}
-        fullWidth='true'
+        <Tabs
+          value={value}
+          onChange={handleChange}
+          aria-label="simple tabs example"
+          classes={{ indicator: classes.upperIndicator}}
+          className={classes.tabBar}
+
         >
-          <Tab label="Item One" style={{color: 'gray', backgroundColor: '#6d6d6d', fontWeight: 400,}} {...a11yProps(0)} />
-          <Tab label="Item Two" classes={classes.tabStyle} {...a11yProps(1)} />
-          <Tab label="Item Three" classes={classes.tabStyle} {...a11yProps(2)} />
+          <Tab label="Recaudacion" className={classes.firstTab} {...a11yProps(0)} />
+          <Tab label="hitorial de pagoskkkkkkkii" className={clsx(classes.centerTab, classes.tabStyle)} {...a11yProps(1)} />
+          <Tab
+            label="Item Three"
+            className={clsx(classes.centerTab, classes.tabStyle)}
+            {...a11yProps(2)}
+          />
         </Tabs>
 
       <TabPanel value={value} index={0}>
-        Item One
+        <CustomTable />
       </TabPanel>
       <TabPanel value={value} index={1}>
         Item Two
@@ -93,7 +131,7 @@ function SimpleTabs(props) {
 }
 
 SimpleTabs.propTypes = {
-  classes: PropTypes.object.isRequired,
+  classes: PropTypes.object.isRequired
 };
 
 export default withStyles(styles)(SimpleTabs);

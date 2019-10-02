@@ -16,6 +16,7 @@ import DeleteForeverOutlinedIcon from '@material-ui/icons/DeleteForeverOutlined'
 import MoreVertIcon from '@material-ui/icons/MoreVert';
 import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
+import CustomBar from './commons/CustomBar'
 
 require('typeface-montserrat');
 
@@ -156,7 +157,7 @@ export default function App() {
         <br></br>
         </Grid>
         <Grid item xs={8} md={9}>
-          AAAAAAAAAAA
+          <CustomBar />
         </Grid>
       </Grid>
   </Container>
