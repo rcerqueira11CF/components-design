@@ -17,6 +17,8 @@ import MoreVertIcon from '@material-ui/icons/MoreVert';
 import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import CustomBar from './commons/CustomBar'
+import DynamicCustomBar from './commons/DynamicCustomBar'
+import DeleteBtn from './commons/DeleteBtn';
 
 require('typeface-montserrat');
 
@@ -32,6 +34,24 @@ const useStyles = makeStyles(theme => ({
     padding: theme.spacing(2),
   },
 }));
+
+const tabInfo = [
+  {
+    id: '1',
+    titleText: 'Diciembre',
+    amountText:'$4.009.271',
+  },
+  {
+    id: '2',
+    titleText:'Enero',
+    amountText:'$6.783.210'
+  },
+  {
+    id: '3',
+    titleText:'Febrero',
+    amountText:'$5.892.000'
+  }
+]
 
 // function Copyright() {
 //   return (
@@ -88,6 +108,17 @@ export default function App() {
           &nbsp;
           <ThirdBtn
               label="Nuevo pago"
+              disabled
+              />
+        </div>
+        <br></br>
+        <div>
+          <DeleteBtn
+              label="Borrar"
+              />
+          &nbsp;
+          <DeleteBtn
+              label="Borrar"
               disabled
               />
         </div>
@@ -158,6 +189,9 @@ export default function App() {
         </Grid>
         <Grid item xs={8} md={9}>
           <CustomBar />
+          <br/>
+          <DynamicCustomBar boxInfos={tabInfo}/>
+
         </Grid>
       </Grid>
   </Container>
