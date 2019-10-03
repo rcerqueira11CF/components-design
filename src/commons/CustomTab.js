@@ -6,6 +6,7 @@ import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
 import Typography from "@material-ui/core/Typography";
 import Box from "@material-ui/core/Box";
+
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
 
@@ -36,9 +37,8 @@ function a11yProps(index) {
   };
 }
 
-function tabGenerator(label, index, tabsSize, classes){
-  const tabClass = clsx(classes.firstTab)
-
+function tabGenerator(label, index, classes){
+  var tabClass = index === 0 ? clsx(classes.tabStyle, classes.firstTab) : clsx(classes.tabStyle, classes.centerTab)
   return (<Tab label={label} className={tabClass} {...a11yProps(index)} />);
 }
 
@@ -53,13 +53,13 @@ function tabContentGenerator(tabContent, value, index){
 const styles = {
   root: {
     flexGrow: 1,
-    backgroundColor: "inherit"
+    backgroundColor: "transparent"
   },
   upperIndicator: {
     top: 0,
     backgroundColor: "#00c85f",
-    size: 10
-  },
+    height: 2
+    },
   tabStyle: {
     fontFamily: "Montserrat",
     fontSize: 18,
@@ -69,42 +69,38 @@ const styles = {
     lineHeight: 0.5,
     letterSpacing: "normal",
     textTransform: "none",
-    "&:hover, &:active, &:focus": {
-      fontWeight: "bold"
-    }
   },
   tabBar: {
-    backgroundColor: "transparent"
+    backgroundColor: "transparent",
+    borderBottom: '0.01em solid #6d6d6d',
+  },
 
-    //borderBottom: '0.1em solid #6d6d6d',
-    //'&:focus-within': {
-    //borderBottom: 'none'
-    //}
+  firstTab: {
+    "&:focus": {
+      borderRight: "0.01em solid #6d6d6d",
+      borderBottom: "0.1em solid #ffffff",
+
+    },
+    '&.Mui-selected': {
+      borderRight: "0.01em solid #6d6d6d",
+      borderBottom: "0.1em solid #ffffff",
+    },
+
   },
   centerTab: {
-    borderBottom: "0.1em solid #6d6d6d",
     transitionProperty: "borderBottom",
     transitionDuration: "8s",
     "&:focus": {
-      borderRight: "0.1em solid #6d6d6d",
-      borderLeft: "0.1em solid #6d6d6d",
-      borderBottom: "none"
-    }
-  },
-  firstTab: {
-    borderBottom: "0.1em solid #6d6d6d",
-    "&:focus": {
-      borderRight: "0.1em solid #6d6d6d",
-      borderBottom: "0"
+      borderRight: "0.01em solid #6d6d6d",
+      borderLeft: "0.01em solid #6d6d6d",
+      borderBottom: "0.1em solid #ffffff",
     },
-    "&:selected": {
-      borderRight: "0.1em solid #6d6d6d",
-      borderBottom: "0"
+    "&.Mui-selected": {
+      borderRight: "0.01em solid #6d6d6d",
+      borderLeft: "0.01em solid #6d6d6d",
+      borderBottom: "0.1em solid #ffffff",
     }
   },
-  active_tab: {
-    color: "blue"
-  }
 };
 
 
@@ -127,7 +123,7 @@ function SimpleTabs(props) {
       >
 
       {tabLabels.map((label, index) =>{
-        return (tabGenerator(label,index, tabLabels.length, classes))
+        return (tabGenerator(label,index, classes))
         })
        }
       </Tabs>
