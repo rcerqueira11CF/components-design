@@ -2,10 +2,10 @@ import React from 'react'
 import { Paper } from '@material-ui/core';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/styles';
-import CustomTabBox from './CustomTabBox';
+import CustomBarBox from './CustomBarBox';
 import Divider from './DivDivider';
 
-// this bar provides the use of onclick in their customTabBox
+// this bar provides the use of onclick in their CustomBarBox
 
 const styles = {
   root: {
@@ -22,7 +22,7 @@ function CustomBar(props) {
   } = props;
   return (
     <Paper className={classes.root}>
-      <CustomTabBox
+      <CustomBarBox
         titleText = 'Diciembre'
         amountText = '$4.009.271'
         tooltip="Dec"
@@ -30,14 +30,14 @@ function CustomBar(props) {
       />
 
       <Divider />
-      <CustomTabBox
+      <CustomBarBox
         titleText = 'Enero'
         amountText = '$6.783.210'
         tooltip="Ene"
         placement="left"
       />
       <Divider />
-      <CustomTabBox
+      <CustomBarBox
         titleText = 'Febrero'
         amountText = '$5.892.000'
         tooltip="Feb"

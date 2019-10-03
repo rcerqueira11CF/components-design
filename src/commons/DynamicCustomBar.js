@@ -2,7 +2,7 @@ import React from "react";
 import { Paper } from "@material-ui/core";
 import PropTypes from "prop-types";
 import { withStyles } from "@material-ui/styles";
-import CustomTabBox from "./CustomTabBox";
+import CustomBarBox from "./CustomBarBox";
 import Divider from "./DivDivider";
 
 const styles = {
@@ -16,7 +16,7 @@ const styles = {
 
 const boxGenerator = boxInfo => {
   return (
-    <CustomTabBox
+    <CustomBarBox
       key={boxInfo.id}
       titleText={boxInfo.titleText}
       amountText={boxInfo.amountText}

@@ -30,7 +30,7 @@ const styles = {
   },
 };
 
-function CustomTabBox(props) {
+function CustomBarBox(props) {
   const {
     classes,
     titleText,
@@ -53,8 +53,8 @@ function CustomTabBox(props) {
     );
 }
 
-CustomTabBox.propTypes = {
+CustomBarBox.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(CustomTabBox);
+export default withStyles(styles)(CustomBarBox);
