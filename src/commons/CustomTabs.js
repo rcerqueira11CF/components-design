@@ -114,7 +114,7 @@ function SimpleTabs(props) {
       >
 
       {tabLabels.map((label, index) =>{
-        return (tabGenerator(label,index, classes))
+        return (tabGenerator(label, index, classes))
         })
        }
       </Tabs>
