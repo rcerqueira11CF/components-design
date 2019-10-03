@@ -75,20 +75,20 @@ const styles = {
   },
   tabBar: {
     backgroundColor: "transparent",
-    borderBottom: '0.01em solid #6d6d6d',
+    borderBottom: '0.01em solid #eaeaea',
   },
 
   firstTab: {
     '&.Mui-selected': {
-      borderRight: "0.01em solid #6d6d6d",
+      borderRight: "0.01em solid #eaeaea",
       borderBottom: "0.1em solid #ffffff",
     },
 
   },
   centerTab: {
     "&.Mui-selected": {
-      borderRight: "0.01em solid #6d6d6d",
-      borderLeft: "0.01em solid #6d6d6d",
+      borderRight: "0.01em solid #eaeaea",
+      borderLeft: "0.01em solid #eaeaea",
       borderBottom: "0.1em solid #ffffff",
     }
   },

@@ -19,6 +19,7 @@ import Grid from '@material-ui/core/Grid';
 import CustomBar from './commons/CustomBar'
 import DynamicCustomBar from './commons/DynamicCustomBar'
 import DeleteBtn from './commons/DeleteBtn';
+import CustomTabs from './commons/CustomTabs';
 
 require('typeface-montserrat');
 
@@ -52,6 +53,17 @@ const tabInfo = [
     amountText:'$5.892.000'
   }
 ]
+
+const labels = ['Custom Bar', 'OptionFilterLink', 'DynamicCustomBar','PrincipalBtn']
+const content = [
+  <CustomBar />,
+  <OptionFilterLink label="Filter link" onClick={hello}/>,
+  <><p>Tabla dinamicaaaaaa</p><DynamicCustomBar boxInfos={tabInfo}/></>,
+  <PrincipalBtn label="Nuevo pago" handleClick={hello} />
+]
+
+
+
 
 // function Copyright() {
 //   return (
@@ -188,10 +200,7 @@ export default function App() {
         <br></br>
         </Grid>
         <Grid item xs={8} md={9}>
-          <CustomBar />
-          <br/>
-          <DynamicCustomBar boxInfos={tabInfo}/>
-
+          <CustomTabs tabLabels={labels} tabContent={content}/>
         </Grid>
       </Grid>
   </Container>
