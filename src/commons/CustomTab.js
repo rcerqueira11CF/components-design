@@ -69,6 +69,9 @@ const styles = {
     lineHeight: 0.5,
     letterSpacing: "normal",
     textTransform: "none",
+    "&.Mui-selected": {
+      fontWeight: 'bold',
+    }
   },
   tabBar: {
     backgroundColor: "transparent",
