@@ -76,11 +76,6 @@ const styles = {
   },
 
   firstTab: {
-    "&:focus": {
-      borderRight: "0.01em solid #6d6d6d",
-      borderBottom: "0.1em solid #ffffff",
-
-    },
     '&.Mui-selected': {
       borderRight: "0.01em solid #6d6d6d",
       borderBottom: "0.1em solid #ffffff",
@@ -88,13 +83,6 @@ const styles = {
 
   },
   centerTab: {
-    transitionProperty: "borderBottom",
-    transitionDuration: "8s",
-    "&:focus": {
-      borderRight: "0.01em solid #6d6d6d",
-      borderLeft: "0.01em solid #6d6d6d",
-      borderBottom: "0.1em solid #ffffff",
-    },
     "&.Mui-selected": {
       borderRight: "0.01em solid #6d6d6d",
       borderLeft: "0.01em solid #6d6d6d",
