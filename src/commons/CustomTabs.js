@@ -97,7 +97,7 @@ const styles = {
 
 
 function SimpleTabs(props) {
-  const { classes, tabLabels, tabContent} = props;
+  const { classes, tabLabels, tabContent, variant} = props;
   const [value, setValue] = React.useState(0);
   const handleChange = (event, newValue) => {
     setValue(newValue);
@@ -111,6 +111,7 @@ function SimpleTabs(props) {
         aria-label="simple tabs example"
         classes={{ indicator: classes.upperIndicator }}
         className={classes.tabBar}
+        variant={variant}
       >
 
       {tabLabels.map((label, index) =>{

@@ -200,7 +200,8 @@ export default function App() {
         <br></br>
         </Grid>
         <Grid item xs={8} md={9}>
-          <CustomTabs tabLabels={labels} tabContent={content}/>
+          <CustomTabs tabLabels={labels} tabContent={content} /> {/* variant='fullWidth' */}
+
         </Grid>
       </Grid>
   </Container>
