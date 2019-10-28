@@ -9,7 +9,7 @@ const styles = {
     justifyContent: 'center',
     width: 250,
     height: 35,
-    color: '6d6d6d',
+    color: '#6d6d6d',
     borderRadius: 5,
     border: 'solid 1px #00c85f',
     fontFamily: 'Montserrat',

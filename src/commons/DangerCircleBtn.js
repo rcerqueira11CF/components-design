@@ -7,18 +7,19 @@ const styles = {
   root: {
     color: '#6b6b6b',
     border: 'solid 1px #6b6b6b',
-    backgroundColor: '#ff6169',
+    backgroundColor: '#ffffff',
     boxShadow: 'none',
     palette: { primary: 'red' },
     "&:hover":{
-      backgroundColor: '#ffc0c3'
+      color: '#ffffff',
+      backgroundColor: '#ff6169'
     },
     "&:disabled":{
-      backgroundColor: '#ff6169',
-      color: '#6b6b6b',
+      backgroundColor: '#ffffff',
       opacity: 0.6,
     },
     "&:active, &:focus":{
+      color: '#ffffff',
       boxShadow: 'none',
     }
   },
