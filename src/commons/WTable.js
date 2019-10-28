@@ -2,6 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import MUIDataTable from "mui-datatables";
 import DangerCircleBtn from "./commons/DangerCircleBtn";
+import MultipleOptionsTableBtn from "./commons/MultipleOptionsTableBtn";
 import DeleteForeverOutlinedIcon from "@material-ui/icons/DeleteForeverOutlined";
 import PrincipalBtn from "./commons/PrincipalBtn";
 import { createMuiTheme, MuiThemeProvider } from "@material-ui/core/styles";
@@ -70,6 +71,7 @@ class CustomTable extends React.Component {
                 >
                   Edit
                 </button>
+                <MultipleOptionsTableBtn idObject={data[tableMeta.rowIndex][0]} />
               </React.Fragment>
             );
           }
