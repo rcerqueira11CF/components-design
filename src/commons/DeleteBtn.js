@@ -11,7 +11,9 @@ const styles = {
     height: 35,
     borderRadius: 20,
     border: 0,
-    color: '#ffffff',
+    color: '#6b6b6b',
+    border: 'solid 1px #6b6b6b',
+    backgroundColor: '#ffffff',
     fontFamily: 'Montserrat',
     fontSize: 18,
     fontWeight: 600,
@@ -20,12 +22,11 @@ const styles = {
     lineHeight: 0.61,
     letterSpacing: 'normal',
     textTransform: 'none',
-    backgroundColor: '#ff6169',
     "&:hover":{
-      backgroundColor: '#ffc0c3',
+      color: '#ffffff',
+      backgroundColor: '#ff6169'
     },
     "&:disabled":{
-      color: "#ffffff",
       opacity: 0.4,
     }
   },

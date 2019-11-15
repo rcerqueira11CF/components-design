@@ -26,10 +26,12 @@ const styles = {
     "&:hover:enabled":{
       backgroundColor: '#ccf4df',
       textDecoration: 'none',
+      border: 'none'
     },
     "&:active":{
       fontWeight: 'bold',
       textDecoration: 'none',
+      border: 'none'
     },
     "&:disabled":{
       opacity: 0.4,
