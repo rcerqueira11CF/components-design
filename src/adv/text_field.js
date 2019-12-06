@@ -5,8 +5,8 @@ import InputLabel from "@material-ui/core/InputLabel";
 import InputAdornment from "@material-ui/core/InputAdornment";
 import FormControl from "@material-ui/core/FormControl";
 import TextField from "@material-ui/core/TextField";
-import OutlinedInput from '@material-ui/core/OutlinedInput';
-import IconButton from '@material-ui/core/IconButton';
+import OutlinedInput from "@material-ui/core/OutlinedInput";
+import IconButton from "@material-ui/core/IconButton";
 import Grid from "@material-ui/core/Grid";
 import AccountCircle from "@material-ui/icons/AccountCircle";
 
@@ -93,32 +93,21 @@ export default function InputWithIcon() {
         </FormControl>
 
         <FormControl fullWidth className={classes.margin} variant="outlined">
-          <InputLabel htmlFor="outlined-adornment-password">Password</InputLabel>
+          <InputLabel htmlFor="outlined-adornment-password">
+            Password
+          </InputLabel>
           <OutlinedInput
             id="outlined-adornment-password"
-            type='text'
+            type="text"
             value=""
-
             endAdornment={
               <InputAdornment position="end">
-                <IconButton
-                  aria-label="toggle password visibility"
-
-                  edge="end"
-                >
-
-                </IconButton>
+                <AccountCircle />
               </InputAdornment>
             }
             labelWidth={70}
-          /> </FormControl>
-
-
-
-
-
-
-
+          />{" "}
+        </FormControl>
       </div>
       <div className={classes.margin}>
         <Grid container spacing={1} alignItems="flex-end">
