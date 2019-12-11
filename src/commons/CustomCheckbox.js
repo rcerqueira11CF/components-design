@@ -1,8 +1,6 @@
 import Checkbox from "@material-ui/core/Checkbox";
 import { withStyles } from "@material-ui/core/styles";
-import PropTypes from "prop-types";
 import React from "react";
-import { green } from "@material-ui/core/colors";
 
 const CustomCheckBox = withStyles({
   root: {

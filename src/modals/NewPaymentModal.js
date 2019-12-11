@@ -1,29 +1,18 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
-import Input from "@material-ui/core/Input";
 import InputLabel from "@material-ui/core/InputLabel";
 import InputAdornment from "@material-ui/core/InputAdornment";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import FormControl from "@material-ui/core/FormControl";
 import TextField from "@material-ui/core/TextField";
-import OutlinedInput from "@material-ui/core/OutlinedInput";
 import SearchRoundedIcon from "@material-ui/icons/SearchRounded";
-import IconButton from "@material-ui/core/IconButton";
-import CalendarTodayRoundedIcon from "@material-ui/icons/CalendarTodayRounded";
 import Grid from "@material-ui/core/Grid";
-import AccountCircle from "@material-ui/icons/AccountCircle";
 import Select from "@material-ui/core/Select";
-import NativeSelect from "@material-ui/core/NativeSelect";
 import {
   MuiPickersUtilsProvider,
-  KeyboardTimePicker,
   KeyboardDatePicker
 } from "@material-ui/pickers";
-import clsx from "clsx";
-import Checkbox from "@material-ui/core/Checkbox";
-import { withStyles } from "@material-ui/core/styles";
-import { green } from "@material-ui/core/colors";
-import CustomCheckBox from "./CustomCheckBox";
+import CustomCheckBox from "../commons/CustomCheckbox";
 import "date-fns";
 import DateFnsUtils from "@date-io/date-fns";
 
@@ -65,14 +54,11 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-const styles = {
-  paddingButton: {
-      padding: "0"
-  }
-};
-
-export default function InputWithIcon() {
+function NewPaymentModal(props) {
   const classes = useStyles();
+  const {
+    folioNumber
+  } = props
   const [state, setState] = React.useState({
     paymentType: "",
     name: "hai",
@@ -80,7 +66,7 @@ export default function InputWithIcon() {
     amountValue: ""
   });
 
-  const folioNumber = "5778";
+  // const folioNumber = "5778";
 
   const [selectedDate, setSelectedDate] = React.useState(
     new Date("2014-08-18T21:11:54")
@@ -146,7 +132,6 @@ export default function InputWithIcon() {
         <MuiPickersUtilsProvider utils={DateFnsUtils}>
           <Grid container justify="space-around">
             <KeyboardDatePicker
-              //className={styles.paddingButton}
               disableToolbar
               fullWidth
               format="MM/dd/yyyy"
@@ -158,7 +143,7 @@ export default function InputWithIcon() {
               onChange={handleDateChange}
               KeyboardButtonProps={{
                 "aria-label": "change date",
-                "className": classes.paddingButton
+                className: classes.paddingButton
               }}
             />
           </Grid>
@@ -215,18 +200,6 @@ export default function InputWithIcon() {
         />
       </FormControl>
 
-      <div
-        className={clsx(classes.elementMargin, classes.textStyle)}
-        style={{ display: "inline-block" }}
-      >
-        <div style={{ float: "left", marginRight: "6px" }}>
-          Próximo folio a utilizar:
-        </div>
-        <div className={classes.greenText} style={{ float: "right" }}>
-          {folioNumber}
-        </div>
-      </div>
-      <br />
 
       <FormControlLabel
         className={classes.elementMargin}
@@ -265,3 +238,6 @@ export default function InputWithIcon() {
     </div>
   );
 }
+
+
+export default NewPaymentModal;

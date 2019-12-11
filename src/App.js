@@ -14,28 +14,14 @@ import DangerCircleBtn from './commons/DangerCircleBtn';
 import GetAppIcon from '@material-ui/icons/GetApp';
 import DeleteForeverOutlinedIcon from '@material-ui/icons/DeleteForeverOutlined';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
-import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import CustomBar from './commons/CustomBar'
 import DynamicCustomBar from './commons/DynamicCustomBar'
 import DeleteBtn from './commons/DeleteBtn';
 import CustomTabs from './commons/CustomTabs';
-import CustomCheckbox from './commons/CustomCheckbox';
+import NewPaymentModal from './modals/NewPaymentModal';
 
 require('typeface-montserrat');
-
-const useStyles = makeStyles(theme => ({
-  root: {
-    flexGrow: 1,
-  },
-  paper: {
-    height: 140,
-    width: 100,
-  },
-  control: {
-    padding: theme.spacing(2),
-  },
-}));
 
 const tabInfo = [
   {
@@ -55,8 +41,9 @@ const tabInfo = [
   }
 ]
 
-const labels = ['Custom Bar', 'OptionFilterLink', 'DynamicCustomBar','PrincipalBtn']
+const labels = ['NewPaymentModal','Custom Bar', 'OptionFilterLink', 'DynamicCustomBar','PrincipalBtn']
 const content = [
+  <NewPaymentModal folioNumber="3737" />,
   <CustomBar />,
   <OptionFilterLink label="Filter link" onClick={hello}/>,
   <><p>Tabla dinamicaaaaaa</p><DynamicCustomBar boxInfos={tabInfo}/></>,

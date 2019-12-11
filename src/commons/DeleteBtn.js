@@ -10,7 +10,6 @@ const styles = {
     width: 250,
     height: 35,
     borderRadius: 20,
-    border: 0,
     color: '#6b6b6b',
     border: 'solid 1px #6b6b6b',
     backgroundColor: '#ffffff',
