@@ -11,7 +11,9 @@
   "dependencies": {
     "@material-ui/core": "latest",
     "@material-ui/icons": "^4.4.3",
+    "@material-ui/pickers": "^3.2.8",
     "clsx": "^1.0.4",
+    "date-fns": "^2.8.1",
     "react": "latest",
     "react-dom": "latest",
     "react-scripts": "latest",

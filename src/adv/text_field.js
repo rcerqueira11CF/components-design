@@ -70,21 +70,22 @@ export default function InputWithIcon() {
     new Date("2014-08-18T21:11:54")
   );
 
-  const handleDateChange = date => {
-    setSelectedDate(date);
-  };
-
   const inputLabel = React.useRef(null);
   const [labelWidth, setLabelWidth] = React.useState(0);
   React.useEffect(() => {
     setLabelWidth(inputLabel.current.offsetWidth);
   }, []);
 
+  //Handlers
   const handleChange = name => event => {
     setState({
       ...state,
       [name]: event.target.value
     });
+  };
+
+  const handleDateChange = date => {
+    setSelectedDate(date);
   };
 
   const handleCheckedChange = name => event => {
