@@ -20,6 +20,7 @@ import CustomBar from './commons/CustomBar'
 import DynamicCustomBar from './commons/DynamicCustomBar'
 import DeleteBtn from './commons/DeleteBtn';
 import CustomTabs from './commons/CustomTabs';
+import CustomCheckbox from './commons/CustomCheckbox';
 
 require('typeface-montserrat');
 
