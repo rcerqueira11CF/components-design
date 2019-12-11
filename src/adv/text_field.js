@@ -3,6 +3,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import Input from "@material-ui/core/Input";
 import InputLabel from "@material-ui/core/InputLabel";
 import InputAdornment from "@material-ui/core/InputAdornment";
+import FormControlLabel from "@material-ui/core/FormControlLabel";
 import FormControl from "@material-ui/core/FormControl";
 import TextField from "@material-ui/core/TextField";
 import OutlinedInput from "@material-ui/core/OutlinedInput";
@@ -14,6 +15,11 @@ import AccountCircle from "@material-ui/icons/AccountCircle";
 import Select from "@material-ui/core/Select";
 import NativeSelect from "@material-ui/core/NativeSelect";
 import { KeyboardDatePicker } from "@material-ui/pickers";
+import clsx from "clsx";
+import Checkbox from "@material-ui/core/Checkbox";
+import { withStyles } from "@material-ui/core/styles";
+import { green } from "@material-ui/core/colors";
+import CustomCheckBox from "./CustomCheckBox";
 
 const useStyles = makeStyles(theme => ({
   margin: {
@@ -30,12 +36,23 @@ const useStyles = makeStyles(theme => ({
     float: "right"
   },
   greenText: {
-    color: "#00c85f",
+    color: "#00c85f !important",
     fontWeight: "bold"
   },
-  inputMargin: {
+  elementMargin: {
     marginTop: "16px",
     marginBottom: "8px"
+  },
+  textStyle: {
+    fontFamily: "Montserrat",
+    fontSize: "20px",
+    fontWeight: "normal",
+    fontStretch: "normal",
+    fontStyle: "normal",
+    lineHeight: "0.66",
+    letterSpacing: "normal",
+    textAlign: "left",
+    color: "#6d6d6d"
   }
 }));
 
@@ -43,7 +60,8 @@ export default function InputWithIcon() {
   const classes = useStyles();
   const [state, setState] = React.useState({
     paymentType: "",
-    name: "hai"
+    name: "hai",
+    checkedNextMonthBill: true
   });
 
   const folioNumber = "5778";
@@ -69,11 +87,18 @@ export default function InputWithIcon() {
     });
   };
 
+  const handleCheckedChange = name => event => {
+    setState({ ...state, [name]: event.target.checked });
+  };
+
   return (
     <div className={classes.margin}>
       <h2> Registro de nuevo pago </h2>
 
-      <div style={{ display: "inline-block", float: "right" }}>
+      <div
+        className={classes.textStyle}
+        style={{ display: "inline-block", float: "right" }}
+      >
         <div style={{ float: "left", marginRight: "6px" }}>
           {" "}
           Próximo folio a utilizar:
@@ -126,7 +151,11 @@ export default function InputWithIcon() {
         />
       </FormControl>
 
-      <FormControl fullWidth variant="outlined" className={classes.inputMargin}>
+      <FormControl
+        fullWidth
+        variant="outlined"
+        className={classes.elementMargin}
+      >
         <InputLabel ref={inputLabel} htmlFor="outlined-age-native-simple">
           Médio de pago
         </InputLabel>
@@ -147,16 +176,51 @@ export default function InputWithIcon() {
         </Select>
       </FormControl>
 
-      <FormControl fullWidth className={classes.inputMargin} variant="outlined">
+      <FormControl
+        fullWidth
+        className={classes.elementMargin}
+        variant="outlined"
+      >
         <TextField
           id="outlined-multiline-static"
-          label="Multiline"
+          label="Comentarios"
           multiline
-          rows="4"
-          defaultValue="Default Value"
+          rows="3"
+          // defaultValue="Default Value"
           variant="outlined"
         />
       </FormControl>
+
+      <div
+        className={clsx(classes.elementMargin, classes.textStyle)}
+        style={{ display: "inline-block" }}
+      >
+        <div style={{ float: "left", marginRight: "6px" }}>
+          Próximo folio a utilizar:
+        </div>
+        <div className={classes.greenText} style={{ float: "right" }}>
+          {folioNumber}
+        </div>
+      </div>
+      <br />
+
+      <FormControlLabel
+        className={classes.elementMargin}
+        control={
+          <CustomCheckBox
+            checked={state.checkedNextMonthBill}
+            onChange={handleCheckedChange("checkedNextMonthBill")}
+            value="checkedNextMonthBill"
+          />
+        }
+        label="Mostrar en boleta de [próximo mes]"
+      />
+
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
 
       {/* <FormControl fullWidth  variant="outlined">
           <InputLabel htmlFor="outlined-adornment-password">

@@ -1,34 +1,17 @@
 import Checkbox from "@material-ui/core/Checkbox";
-import React from 'react';
 import { withStyles } from "@material-ui/core/styles";
 import PropTypes from "prop-types";
+import React from "react";
+import { green } from "@material-ui/core/colors";
 
-// const CheckboxStyle = withStyles({
-//   root: {
-//     color: green[400],
-//     "&$checked": {
-//       color: green[600]
-//     }
-//   },
-//   checked: {}
-// })(props => <Checkbox color="default" {...props} />);
-
-const styles = {
+const CustomCheckBox = withStyles({
   root: {
-    color: "#EAEAEA",
+    color: "#00c85f",
     "&$checked": {
       color: "#00c85f"
     }
-  }
-};
+  },
+  checked: {}
+})(props => <Checkbox color="default" {...props} />);
 
-function CustomCheckBox(props) {
-  //const { classes } = props;
-  return <Checkbox color="default" {...props} />;
-}
-
-CustomCheckBox.propTypes = {
-  classes: PropTypes.object.isRequired
-};
-
-export default withStyles(styles)(CustomCheckBox);
+export default CustomCheckBox;
