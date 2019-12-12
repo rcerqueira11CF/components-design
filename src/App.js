@@ -19,7 +19,7 @@ import CustomBar from './commons/CustomBar'
 import DynamicCustomBar from './commons/DynamicCustomBar'
 import DeleteBtn from './commons/DeleteBtn';
 import CustomTabs from './commons/CustomTabs';
-import NewPaymentModal from './NewPaymentModal/NewPaymentModal';
+import PaymentModal from './NewPaymentModal/PaymentModal';
 
 require('typeface-montserrat');
 
@@ -41,9 +41,9 @@ const tabInfo = [
   }
 ]
 
-const labels = ['NewPaymentModal','Custom Bar', 'OptionFilterLink', 'DynamicCustomBar','PrincipalBtn']
+const labels = ['PaymentModal','Custom Bar', 'OptionFilterLink', 'DynamicCustomBar','PrincipalBtn']
 const content = [
-  <NewPaymentModal folioNumber="3737" />,
+  <PaymentModal folioNumber="3737" />,
   <CustomBar />,
   <OptionFilterLink label="Filter link" onClick={hello}/>,
   <><p>Tabla dinamicaaaaaa</p><DynamicCustomBar boxInfos={tabInfo}/></>,

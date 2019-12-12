@@ -83,7 +83,7 @@ function showBankAccount(bankAccount, classes) {
   }
 }
 
-function NewPaymentModal(props) {
+function PaymentModalContent(props) {
   const classes = useStyles();
   const { folioNumber, bankAccount, closeModalFunction } = props;
   const [state, setState] = React.useState({
@@ -257,4 +257,4 @@ function NewPaymentModal(props) {
   );
 }
 
-export default NewPaymentModal;
+export default PaymentModalContent;
