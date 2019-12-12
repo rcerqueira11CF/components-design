@@ -15,7 +15,9 @@ import {
 import CustomCheckBox from "../commons/CustomCheckbox";
 import "date-fns";
 import DateFnsUtils from "@date-io/date-fns";
-
+import PrincipalBtn from "../commons/PrincipalBtn";
+import SecondaryBtn from "../commons/SecondaryBtn";
+import clsx from "clsx";
 const useStyles = makeStyles(theme => ({
   margin: {
     margin: theme.spacing(1)
@@ -54,19 +56,38 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
+function submitNewPaymentForm() {
+  alert("Submiting form");
+}
+
+function showBankAccount(bankAccount, classes) {
+  if (bankAccount) {
+    return (
+      <div
+        className={clsx(classes.textStyle, classes.elementMargin)}
+        style={{ display: "inline-block", float: "left" }}
+      >
+        <div style={{ float: "left", marginRight: "6px" }}>
+          {" "}
+          Cuenta bancaria asociada a nuevas transacciones:
+        </div>
+        <div className={classes.greenText} style={{ float: "right" }}>
+          {bankAccount}
+        </div>
+      </div>
+    );
+  }
+}
+
 function NewPaymentModal(props) {
   const classes = useStyles();
-  const {
-    folioNumber
-  } = props
+  const { folioNumber, bankAccount, closeModalFunction } = props;
   const [state, setState] = React.useState({
     paymentType: "",
     name: "hai",
     checkedNextMonthBill: true,
     amountValue: ""
   });
-
-  // const folioNumber = "5778";
 
   const [selectedDate, setSelectedDate] = React.useState(
     new Date("2014-08-18T21:11:54")
@@ -200,6 +221,7 @@ function NewPaymentModal(props) {
         />
       </FormControl>
 
+      {showBankAccount(bankAccount, classes)}
 
       <FormControlLabel
         className={classes.elementMargin}
@@ -213,31 +235,16 @@ function NewPaymentModal(props) {
         label="Mostrar en boleta de [próximo mes]"
       />
 
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-
-      {/* <FormControl fullWidth  variant="outlined">
-          <InputLabel htmlFor="outlined-adornment-password">
-            Password
-          </InputLabel>
-          <OutlinedInput
-            id="outlined-adornment-password"
-            type="text"
-            value=""
-            endAdornment={
-              <InputAdornment position="end">
-                <AccountCircle />
-              </InputAdornment>
-            }
-            labelWidth={70}
-          />{" "}
-        </FormControl> */}
+      <div>
+        <div style={{ float: "left", marginRight: "10px" }}>
+          <PrincipalBtn label="Guardar" handleClick={submitNewPaymentForm} />
+        </div>
+        <div>
+          <SecondaryBtn label="Cancelar" handleClick={closeModalFunction} />
+        </div>
+      </div>
     </div>
   );
 }
-
 
 export default NewPaymentModal;
