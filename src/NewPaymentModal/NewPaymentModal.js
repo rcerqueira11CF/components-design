@@ -18,9 +18,13 @@ import DateFnsUtils from "@date-io/date-fns";
 import PrincipalBtn from "../commons/PrincipalBtn";
 import SecondaryBtn from "../commons/SecondaryBtn";
 import clsx from "clsx";
+
+
+
 const useStyles = makeStyles(theme => ({
   margin: {
-    margin: theme.spacing(1)
+    margin: theme.spacing(1),
+    padding: theme.spacing(1, 6)
   },
   formControl: {
     margin: theme.spacing(1),
@@ -223,17 +227,23 @@ function NewPaymentModal(props) {
 
       {showBankAccount(bankAccount, classes)}
 
-      <FormControlLabel
+      <br /><br />
+      <br /><br />
+      <FormControl
         className={classes.elementMargin}
-        control={
-          <CustomCheckBox
-            checked={state.checkedNextMonthBill}
-            onChange={handleCheckedChange("checkedNextMonthBill")}
-            value="checkedNextMonthBill"
-          />
-        }
-        label="Mostrar en boleta de [próximo mes]"
-      />
+      >
+        <FormControlLabel
+
+          control={
+            <CustomCheckBox
+              checked={state.checkedNextMonthBill}
+              onChange={handleCheckedChange("checkedNextMonthBill")}
+              value="checkedNextMonthBill"
+            />
+          }
+          label="Mostrar en boleta de [próximo mes]"
+        />
+      </FormControl>
 
       <div>
         <div style={{ float: "left", marginRight: "10px" }}>

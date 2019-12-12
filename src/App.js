@@ -19,7 +19,7 @@ import CustomBar from './commons/CustomBar'
 import DynamicCustomBar from './commons/DynamicCustomBar'
 import DeleteBtn from './commons/DeleteBtn';
 import CustomTabs from './commons/CustomTabs';
-import NewPaymentModal from './modals/NewPaymentModal';
+import NewPaymentModal from './NewPaymentModal/NewPaymentModal';
 
 require('typeface-montserrat');
 

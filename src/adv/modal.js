@@ -4,16 +4,16 @@ import Modal from "@material-ui/core/Modal";
 import NewPaymentModal from "./NewPaymentModal";
 import Backdrop from '@material-ui/core/Backdrop';
 import Fade from '@material-ui/core/Fade';
+import CloseIcon from "@material-ui/icons/Close";
 
 function getModalStyle() {
   const top = 5;
 
   return {
-    position: "abosolute",
+    position: "absolute",
     top: `${top}%`,
     margin: "auto",
     overflow: "auto",
-    // height: "100%",
     width: "80%",
     "max-width": 858,
     display: "block"
@@ -23,10 +23,7 @@ function getModalStyle() {
 const useStyles = makeStyles(theme => ({
   paper: {
     position: "absolute",
-    // width: "80%",
-    // "max-width": 858,
     backgroundColor: "#ffffff",
-    //boxShadow: theme.shadows[5],
     padding: theme.spacing(2, 4, 3)
   }
 }));
@@ -47,9 +44,8 @@ export default function SimpleModal() {
 
   return (
     <div>
-      <button type="button" onClick={handleOpen}>
-        Open Modal
-      </button>
+      <PrincipalBtn label="Nuevo pago" handleClick={handleOpen} />
+
       <Modal
         aria-labelledby="transition-modal-title"
         aria-describedby="transition-modal-description"
@@ -68,18 +64,16 @@ export default function SimpleModal() {
         }}
       >
         <Fade in={open}>
-        <div style={modalStyle} className={classes.paper}>
-          <NewPaymentModal
-            folioNumber="3737"
-            bankAccount="Cuenta1"
-            closeModalFunction={handleClose}
-          />
-          {/* <h2 id="simple-modal-title">Text in a modal</h2> */}
-          {/* <p id="simple-modal-description"> */}
-          {/* Duis mollis, est non commodo luctus, nisi erat porttitor ligula. */}
-          {/* </p> */}
-          {/* <SimpleModal />  */}
-        </div>
+          <div style={modalStyle} className={classes.paper}>
+            <div onClick={handleClose} style={{ float: "right", cursor: "pointer"  }}>
+              <CloseIcon />
+            </div>
+            <NewPaymentModal
+              folioNumber="3737"
+              bankAccount="Cuenta1"
+              closeModalFunction={handleClose}
+            />
+          </div>
         </Fade>
       </Modal>
     </div>
