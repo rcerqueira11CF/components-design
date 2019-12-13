@@ -4,7 +4,7 @@ import { Paper } from "@material-ui/core";
 import { withStyles } from "@material-ui/styles";
 import DynamicTab from "../commons/DynamicCustomBar";
 import OptionFilterLink from "../commons/OptionFilterLink";
-import WTable from "../WTable";
+import PaymentHistoryTable from "./PaymentHistoryTable";
 import LinksTabs from "./LinksTabs";
 require("typeface-montserrat");
 
@@ -57,7 +57,7 @@ function hello() {
 }
 
 function PaymentHistory(props) {
-  const { classes } = props;
+  const { classes, idCommunity } = props;
   return (
     <div>
       <DynamicTab boxInfos={tabInfo} />
@@ -86,7 +86,7 @@ function PaymentHistory(props) {
           />
         </div>
         <div>
-          <WTable />
+          <PaymentHistoryTable idCommunity={idCommunity} />
         </div>
       </Paper>
     </div>

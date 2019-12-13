@@ -34,7 +34,7 @@ const styles = {
 function FadeMenu(props) {
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
-  const { classes, idObject, month, year } = props;
+  const { classes, idCommunity, idPayment, month, year } = props;
 
   const handleClick = event => {
     setAnchorEl(event.currentTarget);
@@ -44,43 +44,23 @@ function FadeMenu(props) {
     setAnchorEl(null);
   };
 
-  const handleDescargarExcel = () => {
-    console.log('month,year');
-    handleClose()
-
-    // month/year
+  const handleDownloadExcel = () => {
+    console.log("PaymentId:", idPayment);
+    console.log("CommuntyId:", idCommunity);
+    handleClose();
   };
 
-  const handleImportarExcel = () => {
-    console.log(idObject);
-    handleClose()
+  const handleNotify = () => {
+    console.log("PaymentId:", idPayment);
+    console.log("CommuntyId:", idCommunity);
+    handleClose();
   };
 
-  const handleConsolidadoComprobantesPago = () => {
-    console.log(idObject);
-    handleClose()
+  const handleShowBill = () => {
+    console.log("PaymentId:", idPayment);
+    console.log("CommuntyId:", idCommunity);
+    handleClose();
   };
-
-  const handleDescargarPlanillaCobranzas = () => {
-    console.log(idObject);
-    handleClose()
-  };
-
-  const handleImprimiBoletasCortas = () => {
-    console.log(idObject);
-    handleClose()
-  };
-
-  const handleImprimiBoletasExtensas = () => {
-    console.log(idObject);
-    handleClose()
-  };
-
-  const handleDeshacerGastoComun = () => {
-    console.log(idObject);
-    handleClose()
-  };
-
 
   return (
     <span>
@@ -90,7 +70,7 @@ function FadeMenu(props) {
         aria-haspopup="true"
         className={classes.root}
         onClick={handleClick}
-        idObject={idObject}
+        idPayment={idPayment}
         month={month}
         year={year}
       >
@@ -104,16 +84,10 @@ function FadeMenu(props) {
         onClose={handleClose}
         TransitionComponent={Fade}
       >
-        <MenuItem onClick={handleDescargarExcel}>Descargar excel </MenuItem>
-        <MenuItem onClick={handleImportarExcel}>Importar excel</MenuItem>
-        <MenuItem onClick={handleConsolidadoComprobantesPago}>Consolidado de comprobantes de pago</MenuItem>
-        <MenuItem onClick={handleDescargarPlanillaCobranzas}>Descargar planilla de cobranzas</MenuItem>
+        <MenuItem onClick={handleDownloadExcel}>Descargar excel</MenuItem>
+        <MenuItem onClick={handleNotify}>Notificar</MenuItem>
 
-        <MenuItem onClick={handleImprimiBoletasCortas}>Imprimir boletas cortas</MenuItem>
-
-        <MenuItem onClick={handleImprimiBoletasExtensas}>Imprimir boletas extensas</MenuItem>
-
-        <MenuItem onClick={handleDeshacerGastoComun}>Deshacer gasto común</MenuItem>
+        <MenuItem onClick={handleShowBill}>Ver</MenuItem>
       </Menu>
     </span>
   );

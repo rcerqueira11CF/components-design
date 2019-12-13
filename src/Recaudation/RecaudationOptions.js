@@ -34,7 +34,7 @@ const styles = {
 function FadeMenu(props) {
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
-  const { classes, idObject, month, year } = props;
+  const { classes, idCommunity, month, year } = props;
 
   const handleClick = event => {
     setAnchorEl(event.currentTarget);
@@ -45,42 +45,41 @@ function FadeMenu(props) {
   };
 
   const handleDescargarExcel = () => {
-    console.log('month,year');
-    handleClose()
+    console.log("month,year", month, year);
+    handleClose();
 
     // month/year
   };
 
   const handleImportarExcel = () => {
-    console.log(idObject);
-    handleClose()
+    console.log(idCommunity);
+    handleClose();
   };
 
   const handleConsolidadoComprobantesPago = () => {
-    console.log(idObject);
-    handleClose()
+    console.log(idCommunity);
+    handleClose();
   };
 
   const handleDescargarPlanillaCobranzas = () => {
-    console.log(idObject);
-    handleClose()
+    console.log(idCommunity);
+    handleClose();
   };
 
   const handleImprimiBoletasCortas = () => {
-    console.log(idObject);
-    handleClose()
+    console.log(idCommunity);
+    handleClose();
   };
 
   const handleImprimiBoletasExtensas = () => {
-    console.log(idObject);
-    handleClose()
+    console.log(idCommunity);
+    handleClose();
   };
 
   const handleDeshacerGastoComun = () => {
-    console.log(idObject);
-    handleClose()
+    console.log(idCommunity);
+    handleClose();
   };
-
 
   return (
     <span>
@@ -90,7 +89,7 @@ function FadeMenu(props) {
         aria-haspopup="true"
         className={classes.root}
         onClick={handleClick}
-        idObject={idObject}
+        idCommunity={idCommunity}
         month={month}
         year={year}
       >
@@ -106,14 +105,24 @@ function FadeMenu(props) {
       >
         <MenuItem onClick={handleDescargarExcel}>Descargar excel </MenuItem>
         <MenuItem onClick={handleImportarExcel}>Importar excel</MenuItem>
-        <MenuItem onClick={handleConsolidadoComprobantesPago}>Consolidado de comprobantes de pago</MenuItem>
-        <MenuItem onClick={handleDescargarPlanillaCobranzas}>Descargar planilla de cobranzas</MenuItem>
+        <MenuItem onClick={handleConsolidadoComprobantesPago}>
+          Consolidado de comprobantes de pago
+        </MenuItem>
+        <MenuItem onClick={handleDescargarPlanillaCobranzas}>
+          Descargar planilla de cobranzas
+        </MenuItem>
 
-        <MenuItem onClick={handleImprimiBoletasCortas}>Imprimir boletas cortas</MenuItem>
+        <MenuItem onClick={handleImprimiBoletasCortas}>
+          Imprimir boletas cortas
+        </MenuItem>
 
-        <MenuItem onClick={handleImprimiBoletasExtensas}>Imprimir boletas extensas</MenuItem>
+        <MenuItem onClick={handleImprimiBoletasExtensas}>
+          Imprimir boletas extensas
+        </MenuItem>
 
-        <MenuItem onClick={handleDeshacerGastoComun}>Deshacer gasto común</MenuItem>
+        <MenuItem onClick={handleDeshacerGastoComun}>
+          Deshacer gasto común
+        </MenuItem>
       </Menu>
     </span>
   );
