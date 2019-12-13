@@ -44,7 +44,7 @@ class CustomTable extends React.Component {
       "Edad",
       "Salario",
       {
-        name: "Actions",
+        name: "Opciones",
         options: {
           filter: false,
           sort: false,
@@ -71,7 +71,7 @@ class CustomTable extends React.Component {
                 >
                   Edit
                 </button>
-                <MultipleOptionsTableBtn idObject={data[tableMeta.rowIndex][0]} />
+                 <MultipleOptionsTableBtn idObject={data[tableMeta.rowIndex][0]} />
               </React.Fragment>
             );
           }
