@@ -19,6 +19,8 @@ import CustomBar from "../commons/CustomBar";
 import DynamicCustomBar from "../commons/DynamicCustomBar";
 import DeleteBtn from "../commons/DeleteBtn";
 import CustomTabs from "../commons/CustomTabs";
+import NewPaymentModal from "../NewPaymentModal/PaymentModal";
+
 
 require("typeface-montserrat");
 
@@ -41,19 +43,20 @@ const tabInfo = [
 ];
 
 const labels = [
-  "Custom Bar",
-  "OptionFilterLink",
+  "CustomBar",
   "DynamicCustomBar",
-  "PrincipalBtn"
+  "NewPaymentModal"
 ];
 const content = [
   <CustomBar />,
-  <OptionFilterLink label="Filter link" onClick={hello} />,
   <>
-    <p>Tabla dinamicaaaaaa</p>
+    <p>Tab dinamica</p>
     <DynamicCustomBar boxInfos={tabInfo} />
   </>,
-  <PrincipalBtn label="Nuevo pago" handleClick={hello} />
+  <>
+    <NewPaymentModal idCommunity={9} />
+  </>,
+
 ];
 
 // function Copyright() {
@@ -82,36 +85,42 @@ export default function App() {
       <Grid container spacing={10}>
         <Grid item xs={4} md={3}>
           <div>
+            <span>PrincipalBtn</span>
             <PrincipalBtn label="Nuevo pago" handleClick={hello} />
             &nbsp;
             <PrincipalBtn label="Nuevo pago" disabled />
           </div>
           <br />
           <div>
+            <span>SecondaryBtn</span>
             <SecondaryBtn label="Nuevo pago" />
             &nbsp;
             <SecondaryBtn label="Nuevo pago" disabled />
           </div>
           <br />
           <div>
+            <span>ThirdBtn</span>
             <ThirdBtn label="Nuevo pago" />
             &nbsp;
             <ThirdBtn label="Nuevo pago" disabled />
           </div>
           <br />
           <div>
+            <span>DeleteBtn</span>
             <DeleteBtn label="Borrar" />
             &nbsp;
             <DeleteBtn label="Borrar" disabled />
           </div>
           <br />
           <div>
+            <span>SearchInputProps</span>
             <SearchInputProps placeholder="Buscar" onClick={hello} />
             &nbsp;
             <SearchInputProps placeholder="Buscar" onClick={hello} disabled />
           </div>
           <br />
           <div>
+            <span>DefaultCircleBtn</span>
             <DefaultCircleBtn iconBtn={<GetAppIcon />} onClick={hello} />
             &nbsp;
             <DefaultCircleBtn
@@ -133,6 +142,7 @@ export default function App() {
           </div>
           <br />
           <div>
+            <span>PrimaryCircleBtn</span>
             <PrimaryCircleBtn iconBtn={<MoreVertIcon />} onClick={hello} />
             &nbsp;
             <PrimaryCircleBtn
@@ -143,6 +153,7 @@ export default function App() {
           </div>
           <br />
           <div>
+            <span>OptionFilterLink</span>
             <OptionFilterLink label="Filter link" onClick={hello} />
             &nbsp;
             <OptionFilterLink label="Filter link" onClick={hello} disabled />

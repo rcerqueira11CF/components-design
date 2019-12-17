@@ -35,7 +35,7 @@ const styles = {
 //   }
 // ];
 
-const labels = ["Historial de pagos", "Recaudación", "WTable", "Bases"];
+const labels = ["Historial de pagos", "Recaudación", "Bases"];
 const content = [
   <PaymentHistory idCommunity={7} />,
   <RecaudationTable />,

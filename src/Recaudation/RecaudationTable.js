@@ -1,5 +1,4 @@
 import React from "react";
-import ReactDOM from "react-dom";
 import MUIDataTable from "mui-datatables";
 import DangerCircleBtn from "../commons/DangerCircleBtn";
 import MultipleOptionsTableBtn from "../commons/MultipleOptionsTableBtn";

@@ -5,7 +5,7 @@ import { withStyles } from "@material-ui/styles";
 import DynamicTab from "../commons/DynamicCustomBar";
 import OptionFilterLink from "../commons/OptionFilterLink";
 import PaymentHistoryTable from "./PaymentHistoryTable";
-import LinksTabs from "./LinksTabs";
+// import LinksTabs from "./LinksTabs";
 require("typeface-montserrat");
 
 const styles = {
