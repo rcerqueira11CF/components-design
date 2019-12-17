@@ -43,7 +43,8 @@ function PrincipalBtn(props) {
     className={classes.root}
     onClick={handleClick}
     fullWidth='true'
-    disabled={disabled}>
+    disabled={disabled}
+    {...props}>
     {label}
   </Button>);
 }

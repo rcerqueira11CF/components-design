@@ -66,12 +66,12 @@ function FadeMenu(props) {
     handleClose();
   };
 
-  const handleImprimiBoletasCortas = () => {
+  const handleImprimirBoletasCortas = () => {
     console.log(idCommunity);
     handleClose();
   };
 
-  const handleImprimiBoletasExtensas = () => {
+  const handleImprimirBoletasExtensas = () => {
     console.log(idCommunity);
     handleClose();
   };
@@ -112,12 +112,12 @@ function FadeMenu(props) {
           Descargar planilla de cobranzas
         </MenuItem>
 
-        <MenuItem onClick={handleImprimiBoletasCortas}>
-          Imprimir boletas cortas
+        <MenuItem onClick={handleImprimirBoletasCortas}>
+          Imprimirr boletas cortas
         </MenuItem>
 
-        <MenuItem onClick={handleImprimiBoletasExtensas}>
-          Imprimir boletas extensas
+        <MenuItem onClick={handleImprimirBoletasExtensas}>
+          Imprimirr boletas extensas
         </MenuItem>
 
         <MenuItem onClick={handleDeshacerGastoComun}>

@@ -43,6 +43,7 @@ export default function SearchBtn() {
         placeholder="Buscar"
         inputProps={{ 'aria-label': 'search google maps' }}
         disable={this.props.disabled}
+        {...props}
       />
       <IconButton className={classes.iconButton} aria-label="search">
         <SearchIcon />

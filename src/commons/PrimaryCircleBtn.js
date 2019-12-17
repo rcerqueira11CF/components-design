@@ -38,7 +38,8 @@ function PrimaryCircleBtn(props) {
     aria-label="add"
     className={classes.root}
     onClick={onClick}
-    disabled={disabled}>
+    disabled={disabled}
+    {...props}>
     {iconBtn}
     </Fab>
   )

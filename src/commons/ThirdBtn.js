@@ -45,7 +45,8 @@ function ThirdBtn(props) {
   <Button
     className={classes.root}
     onClick={handleClick}
-    disabled={disabled}>
+    disabled={disabled}
+    {...props}>
     <FilterListRoundedIcon className={classes.leftIcon} fontSize='large' shape-rendering="geometricPrecision" />
     {label}
   </Button>);

@@ -42,7 +42,8 @@ function SecondaryBtn(props) {
   <Button
     className={classes.root}
     onClick={handleClick}
-    disabled={disabled}>
+    disabled={disabled}
+    {...props}>
     {label}
   </Button>);
 }

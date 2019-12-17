@@ -1,29 +1,44 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { Paper } from "@material-ui/core";
+// import { Paper } from "@material-ui/core";
 import { withStyles } from "@material-ui/styles";
-import DynamicTab from "../commons/DynamicCustomBar";
+// import DynamicTab from "../commons/DynamicCustomBar";
 import OptionFilterLink from "../commons/OptionFilterLink";
+import SecondaryBtn from "../commons/SecondaryBtn";
 // import WTable from "../WTable";
 require("typeface-montserrat");
 
 const styles = {
   root: {
     display: "flex",
-    alignItems: "center",
-    justifyContent: "space-evenly"
+    float: "right"
+    // alignItems: "center"
+    //justifyContent: "space-evenly"
+  },
+  marginLeft: {
+    marginLeft: "5px"
   }
 };
 
-function hello() {
-  alert("hello");
+function importExcelHandler() {
+  alert("importExcel");
 }
 
-function LinksTabs(props) {
+function downloadExcelHandler() {
+  alert("downloadExcel");
+}
+
+function ExcelHandler(props) {
   const { classes } = props;
   return (
-    <div key="bb" className={classes.root}>
-      <OptionFilterLink
+    <span key="bb" className={classes.root}>
+      <span>
+        <SecondaryBtn label="Importar excel" />
+      </span>
+      <span className={classes.marginLeft}>
+        <SecondaryBtn label="Descarga excel" />
+      </span>
+      {/* <OptionFilterLink
         key="allPayment"
         label="Todos los pagos"
         onClick={hello}
@@ -42,13 +57,13 @@ function LinksTabs(props) {
         key="nullifiedPayments"
         label="Pagos anulados"
         onClick={hello}
-      />
-    </div>
+      /> */}
+    </span>
   );
 }
 
-LinksTabs.propTypes = {
+ExcelHandler.propTypes = {
   classes: PropTypes.object.isRequired
 };
 
-export default withStyles(styles)(LinksTabs);
+export default withStyles(styles)(ExcelHandler);

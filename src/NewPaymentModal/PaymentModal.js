@@ -1,7 +1,7 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Modal from "@material-ui/core/Modal";
-import NewPaymentModal from "./NewPaymentModal";
+import PaymentModalContent from "./PaymentModalContent";
 import Backdrop from "@material-ui/core/Backdrop";
 import Fade from "@material-ui/core/Fade";
 import PrincipalBtn from "../commons/PrincipalBtn";
@@ -72,7 +72,7 @@ function PaymentModal(props) {
             >
               <CloseIcon />
             </div>
-            <NewPaymentModal
+            <PaymentModalContent
               folioNumber="3737"
               bankAccount="Cuenta1"
               closeModalFunction={handleClose}
@@ -83,6 +83,5 @@ function PaymentModal(props) {
     </div>
   );
 }
-
 
 export default PaymentModal;

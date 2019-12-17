@@ -24,7 +24,7 @@ import clsx from "clsx";
 const useStyles = makeStyles(theme => ({
   margin: {
     margin: theme.spacing(1),
-    padding: theme.spacing(1, 6)
+    padding: theme.spacing(1, 5)
   },
   formControl: {
     margin: theme.spacing(1),

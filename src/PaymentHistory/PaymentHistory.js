@@ -54,10 +54,18 @@ const tabInfo = [
 
 function hello() {
   alert("hello");
+  this.setState(false);
 }
 
 function PaymentHistory(props) {
   const { classes, idCommunity } = props;
+
+  const [state, setState] = React.useState({
+    allPayment: true,
+    paymentNotNotified: false,
+    paymentNotRecognized: false,
+    nullifiedPayments: false
+  });
   return (
     <div>
       <DynamicTab boxInfos={tabInfo} />
@@ -67,27 +75,30 @@ function PaymentHistory(props) {
           <OptionFilterLink
             key="allPayment"
             label="Todos los pagos"
+            active={state.allPayment}
             onClick={hello}
           />
           <OptionFilterLink
             key="paymentNotNotified"
             label="Pagos no notificados"
+            active={state.paymentNotNotified}
             onClick={hello}
           />
           <OptionFilterLink
             key="paymentNotRecognized"
             label="Pagos no reconocidos"
+            active={state.paymentNotRecognized}
             onClick={hello}
           />
           <OptionFilterLink
             key="nullifiedPayments"
             label="Pagos anulados"
+            active={state.nullifiedPayments}
             onClick={hello}
           />
         </div>
-        <div>
-          <PaymentHistoryTable idCommunity={idCommunity} />
-        </div>
+        <br />
+        <div><PaymentHistoryTable idCommunity={idCommunity} /></div>
       </Paper>
     </div>
   );

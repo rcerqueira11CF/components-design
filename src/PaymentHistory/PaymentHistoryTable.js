@@ -1,12 +1,13 @@
 import React from "react";
-import ReactDOM from "react-dom";
 import MUIDataTable from "mui-datatables";
-import DangerCircleBtn from "../commons/DangerCircleBtn";
-import MultipleOptionsTableBtn from "../commons/MultipleOptionsTableBtn";
-import DeleteForeverOutlinedIcon from "@material-ui/icons/DeleteForeverOutlined";
+// import ReactDOM from "react-dom";
+// import DangerCircleBtn from "../commons/DangerCircleBtn";
+// import MultipleOptionsTableBtn from "../commons/MultipleOptionsTableBtn";
+// import DeleteForeverOutlinedIcon from "@material-ui/icons/DeleteForeverOutlined";
 import { createMuiTheme, MuiThemeProvider } from "@material-ui/core/styles";
 import NewPaymentModal from "../NewPaymentModal/PaymentModal";
 import PaymentHistoryTableOptions from "./PaymentHistoryTableOptions";
+import ExcelHandler from "./ExcelHandler";
 
 class CustomTable extends React.Component {
   constructor(props) {
@@ -38,63 +39,6 @@ class CustomTable extends React.Component {
     });
 
   render() {
-    const columns = [
-      { name: "id", options: { display: "excluded" } },
-      "Nombre",
-      "Cargo",
-      "Ubicación",
-      "Edad",
-      "Salario",
-      // {
-      //   name: "Column name",
-      //   options: {
-      //     customHeadRender: ({index, ...column}) => {
-      //       console.log(column)
-      //       return (
-      //         <PaymentHistoryOptions />
-      //       )
-      //     }
-      //   }
-      // },
-      {
-        name: "Opciones",
-        options: {
-          filter: false,
-          sort: false,
-          empty: true,
-          print: false,
-          download: false,
-          customBodyRender: (value, tableMeta, updateValue) => {
-            return (
-              <React.Fragment>
-                {/* <DangerCircleBtn
-                  iconBtn={<DeleteForeverOutlinedIcon />}
-                  onClick={() => {
-                    const myId = data[tableMeta.rowIndex][0];
-                    alert(myId);
-                  }}
-                />
-
-                <button
-                  onClick={() =>
-                    window.alert(
-                      `Clicked "Edit" for row ${data[tableMeta.rowIndex][0]}`
-                    )
-                  }
-                >
-                  Edit
-                </button> */}
-                <PaymentHistoryTableOptions
-                  idPayment={data[tableMeta.rowIndex][0]}
-                  idCommunity={this.state.idCommunity}
-                />
-              </React.Fragment>
-            );
-          }
-        }
-      }
-    ];
-
     const data = [
       [
         1,
@@ -320,15 +264,75 @@ class CustomTable extends React.Component {
       ]
     ];
 
+    const columns = [
+      { name: "id", options: { display: "excluded" } },
+      "Nombre",
+      "Cargo",
+      "Ubicación",
+      "Edad",
+      "Salario",
+      // {
+      //   name: "Column name",
+      //   options: {
+      //     customHeadRender: ({index, ...column}) => {
+      //       console.log(column)
+      //       return (
+      //         <PaymentHistoryOptions />
+      //       )
+      //     }
+      //   }
+      // },
+
+      {
+        name: "Opciones",
+        options: {
+          filter: false,
+          sort: false,
+          empty: true,
+          print: false,
+          download: false,
+          customBodyRender: (value, tableMeta, updateValue) => {
+            return (
+              <React.Fragment>
+                {/* <DangerCircleBtn
+                  iconBtn={<DeleteForeverOutlinedIcon />}
+                  onClick={() => {
+                    const myId = data[tableMeta.rowIndex][0];
+                    alert(myId);
+                  }}
+                />
+
+                <button
+                  onClick={() =>
+                    window.alert(
+                      `Clicked "Edit" for row ${data[tableMeta.rowIndex][0]}`
+                    )
+                  }
+                >
+                  Edit
+                </button> */}
+                <PaymentHistoryTableOptions
+                  idPayment={data[tableMeta.rowIndex][0]}
+                  idCommunity={this.state.idCommunity}
+                />
+              </React.Fragment>
+            );
+          }
+        }
+      }
+    ];
+
     const options = {
+      filter: false,
+      print: false,
+      viewColumns: false,
+      download: false,
       filterType: "dropdown",
       responsive: "scrollFullHeight",
-      elevation: 0
-      // customToolbar: () => {
-      //   return (
-      //     <PaymentHistoryOptions idCommunity={9} month={"02"} year={2019} />
-      //   );
-      // }
+      elevation: 0,
+      customToolbar: () => {
+        return <ExcelHandler />;
+      }
     };
 
     function headerIcons() {
@@ -342,7 +346,7 @@ class CustomTable extends React.Component {
     return (
       <MuiThemeProvider theme={this.getMuiTheme()}>
         <MUIDataTable
-          title={headerIcons()}
+          title={""}
           data={data}
           columns={columns}
           options={options}
