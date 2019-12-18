@@ -6,6 +6,8 @@ import DynamicTab from "../commons/DynamicCustomBar";
 import OptionFilterLink from "../commons/OptionFilterLink";
 import PaymentHistoryTable from "./PaymentHistoryTable";
 import NotNotifiedPaymentsTable from "../NotNotifiedPayments/NoNotifiedPaymentsTable"
+import NotRecognizedPaymentsTable from "../NotRecognizedPayments/NotRecognizedPaymentsTable"
+
 // import LinksTabs from "./LinksTabs";
 require("typeface-montserrat");
 
@@ -83,7 +85,7 @@ function PaymentHistory(props) {
   function showTable(){
     if (state.allPayment) return <PaymentHistoryTable idCommunity={idCommunity} />;
     if (state.paymentNotNotified) return <NotNotifiedPaymentsTable idCommunity={idCommunity} />;
-    // if (state.paymentNotRecognized) return qwe;
+    if (state.paymentNotRecognized) return <NotRecognizedPaymentsTable idCommunity={idCommunity} />;
     // if (state.nullifiedPayments) return qwe;
   }
   return (
