@@ -6,8 +6,8 @@ import MUIDataTable from "mui-datatables";
 // import DeleteForeverOutlinedIcon from "@material-ui/icons/DeleteForeverOutlined";
 import { createMuiTheme, MuiThemeProvider } from "@material-ui/core/styles";
 import NewPaymentModal from "../NewPaymentModal/PaymentModal";
-import PaymentHistoryTableOptions from "./PaymentHistoryTableOptions";
-import ExcelHandler from "./ExcelHandler";
+import AllPaymentsTableOptions from "./AllPaymentsTableOptions";
+import TableOptions from "./TableOptions";
 
 class CustomTable extends React.Component {
   constructor(props) {
@@ -195,7 +195,7 @@ class CustomTable extends React.Component {
                 >
                   Edit
                 </button> */}
-                <PaymentHistoryTableOptions
+                <AllPaymentsTableOptions
                   idPayment={data[tableMeta.rowIndex][0]}
                   idCommunity={this.state.idCommunity}
                 />
@@ -215,7 +215,7 @@ class CustomTable extends React.Component {
       responsive: "scrollFullHeight",
       elevation: 0,
       customToolbar: () => {
-        return <ExcelHandler />;
+        return <TableOptions />;
       }
     };
 

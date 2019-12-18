@@ -4,7 +4,7 @@ import { Paper } from "@material-ui/core";
 import { withStyles } from "@material-ui/styles";
 import DynamicTab from "../commons/DynamicCustomBar";
 import OptionFilterLink from "../commons/OptionFilterLink";
-import PaymentHistoryTable from "./PaymentHistoryTable";
+import AllPaymentsTable from "../AllPayments/AllPaymentsTable"
 import NotNotifiedPaymentsTable from "../NotNotifiedPayments/NoNotifiedPaymentsTable"
 import NotRecognizedPaymentsTable from "../NotRecognizedPayments/NotRecognizedPaymentsTable"
 
@@ -83,7 +83,7 @@ function PaymentHistory(props) {
   }
 
   function showTable(){
-    if (state.allPayment) return <PaymentHistoryTable idCommunity={idCommunity} />;
+    if (state.allPayment) return <AllPaymentsTable idCommunity={idCommunity} />;
     if (state.paymentNotNotified) return <NotNotifiedPaymentsTable idCommunity={idCommunity} />;
     if (state.paymentNotRecognized) return <NotRecognizedPaymentsTable idCommunity={idCommunity} />;
     // if (state.nullifiedPayments) return qwe;
