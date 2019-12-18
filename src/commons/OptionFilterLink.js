@@ -51,7 +51,7 @@ function OptionFilterLink(props) {
     <Link
       component="button"
       color="default"
-      className={clsx(classes.root, active ? classes.activeLink : null)}
+      className={clsx(classes.root, active ? classes.activeLink : "")}
       onClick={handleClick}
       disabled={disabled}
       {...props}

@@ -5,6 +5,7 @@ import { withStyles } from "@material-ui/styles";
 import DynamicTab from "../commons/DynamicCustomBar";
 import OptionFilterLink from "../commons/OptionFilterLink";
 import PaymentHistoryTable from "./PaymentHistoryTable";
+import NotNotifiedPaymentsTable from "../NotNotifiedPayments/NoNotifiedPaymentsTable"
 // import LinksTabs from "./LinksTabs";
 require("typeface-montserrat");
 
@@ -23,7 +24,7 @@ const styles = {
     //backgroundColor: "#ffffff"
     display: "flex",
     alignItems: "center",
-    justifyContent: "space-evenly",
+    justifyContent: "center",
     //backgroundColor: '#ffffff',
     boxShadow: "none"
   },
@@ -52,10 +53,7 @@ const tabInfo = [
   }
 ];
 
-function hello() {
-  alert("hello");
-  this.setState(false);
-}
+
 
 function PaymentHistory(props) {
   const { classes, idCommunity } = props;
@@ -66,39 +64,72 @@ function PaymentHistory(props) {
     paymentNotRecognized: false,
     nullifiedPayments: false
   });
+
+  function toggleLinks(link) {
+    //alert("nullifiedPayments")
+    setState({
+      allPayment: false,
+      paymentNotNotified: false,
+      paymentNotRecognized: false,
+      nullifiedPayments: false
+    });
+
+    link === "allPayment" && setState({ allPayment : true})
+    link === "paymentNotNotified" && setState({ paymentNotNotified : true})
+    link === "paymentNotRecognized" && setState({ paymentNotRecognized : true})
+    link === "nullifiedPayments" && setState({ nullifiedPayments : true})
+  }
+
+  function showTable(){
+    if (state.allPayment) return <PaymentHistoryTable idCommunity={idCommunity} />;
+    if (state.paymentNotNotified) return <NotNotifiedPaymentsTable idCommunity={idCommunity} />;
+    // if (state.paymentNotRecognized) return qwe;
+    // if (state.nullifiedPayments) return qwe;
+  }
   return (
     <div>
       <DynamicTab boxInfos={tabInfo} />
       <br />
       <Paper elevation="0">
+        <br />
         <div className={classes.paperContent}>
           <OptionFilterLink
             key="allPayment"
             label="Todos los pagos"
             active={state.allPayment}
-            onClick={hello}
+            onClick={() => {
+              toggleLinks("allPayment")
+            }}
           />
           <OptionFilterLink
             key="paymentNotNotified"
             label="Pagos no notificados"
             active={state.paymentNotNotified}
-            onClick={hello}
+            onClick={() => {
+              toggleLinks("paymentNotNotified")
+            }}
           />
           <OptionFilterLink
             key="paymentNotRecognized"
             label="Pagos no reconocidos"
             active={state.paymentNotRecognized}
-            onClick={hello}
+            onClick={() => {
+              toggleLinks("paymentNotRecognized")
+            }}
           />
           <OptionFilterLink
             key="nullifiedPayments"
             label="Pagos anulados"
             active={state.nullifiedPayments}
-            onClick={hello}
+            onClick={() => {
+              toggleLinks("nullifiedPayments")
+            }}
           />
         </div>
-        <br />
-        <div><PaymentHistoryTable idCommunity={idCommunity} /></div>
+        <div>
+          <br />
+          {showTable()}
+        </div>
       </Paper>
     </div>
   );

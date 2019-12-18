@@ -154,9 +154,9 @@ export default function App() {
           <br />
           <div>
             <span>OptionFilterLink</span>
-            <OptionFilterLink label="Filter link" onClick={hello} />
+            <OptionFilterLink label="Filter link" onClick={hello} active={false}/>
             &nbsp;
-            <OptionFilterLink label="Filter link" onClick={hello} disabled />
+            <OptionFilterLink label="Filter link" onClick={hello} active={false} disabled />
           </div>
           <br />
         </Grid>
