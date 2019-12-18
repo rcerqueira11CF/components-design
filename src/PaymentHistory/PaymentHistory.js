@@ -7,6 +7,7 @@ import OptionFilterLink from "../commons/OptionFilterLink";
 import AllPaymentsTable from "../AllPayments/AllPaymentsTable"
 import NotNotifiedPaymentsTable from "../NotNotifiedPayments/NoNotifiedPaymentsTable"
 import NotRecognizedPaymentsTable from "../NotRecognizedPayments/NotRecognizedPaymentsTable"
+import NullifiedPaymentsTable from "../NullifiedPayments/NullifiedPaymentsTable"
 
 // import LinksTabs from "./LinksTabs";
 require("typeface-montserrat");
@@ -86,7 +87,7 @@ function PaymentHistory(props) {
     if (state.allPayment) return <AllPaymentsTable idCommunity={idCommunity} />;
     if (state.paymentNotNotified) return <NotNotifiedPaymentsTable idCommunity={idCommunity} />;
     if (state.paymentNotRecognized) return <NotRecognizedPaymentsTable idCommunity={idCommunity} />;
-    // if (state.nullifiedPayments) return qwe;
+    if (state.nullifiedPayments) return <NullifiedPaymentsTable idCommunity={idCommunity} />;
   }
   return (
     <div>
