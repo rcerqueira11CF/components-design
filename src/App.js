@@ -10,11 +10,23 @@ import RecaudationTable from "./Recaudation/RecaudationTable";
 import CustomTabs from "./commons/CustomTabs";
 // import LinksTabs from "./PaymentHistory/LinksTabs";
 import BaseComponents from "./BaseComponents/BaseComponents";
+import Navbar from "./BaseComponents/Navbar"
 require("typeface-montserrat");
 
 const styles = {
   root: {
     backgroundColor: "#F9F9F9"
+  },
+  marginContent:{
+    marginLeft: "90px",
+    marginRight: "20px"
+  },
+  greyBar:{
+    height: "100%",
+    backgroundColor: "#000000",
+    width: "80px",
+    float: "left",
+    position: "absolute"
   }
 };
 // const tabInfo = [
@@ -47,7 +59,15 @@ function App(props) {
   const { classes } = props;
   return (
     <div className={classes.root}>
-      <CustomTabs tabLabels={labels} tabContent={content} />
+      <Navbar />
+      <br/>
+      <div className={classes.greyBar}>
+test
+      </div>
+      <div className={classes.marginContent}>
+
+        <CustomTabs tabLabels={labels} tabContent={content} />
+      </div>
     </div>
   );
 }
