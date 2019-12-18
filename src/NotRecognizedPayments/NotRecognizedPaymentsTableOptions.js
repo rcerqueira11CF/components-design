@@ -1,11 +1,8 @@
 import React from "react";
-import Menu from "@material-ui/core/Menu";
-import MenuItem from "@material-ui/core/MenuItem";
 import PropTypes from "prop-types";
 import { withStyles } from "@material-ui/styles";
-import Fade from "@material-ui/core/Fade";
-import MoreVertRoundedIcon from "@material-ui/icons/MoreVertRounded";
-import Fab from "@material-ui/core/Fab";
+import SmallDangerCircleTableBtn from "../commons/SmallDangerCircleTableBtn"
+import DeleteRoundedIcon from '@material-ui/icons/DeleteRounded';
 
 const styles = {
   root: {
@@ -31,70 +28,25 @@ const styles = {
   }
 };
 
-function FadeMenu(props) {
-  const [anchorEl, setAnchorEl] = React.useState(null);
-  const open = Boolean(anchorEl);
+function NotRecognizedPaymentsTableOptions(props) {
   const { classes, idCommunity, idPayment, month, year } = props;
 
-  const handleClick = event => {
-    setAnchorEl(event.currentTarget);
-  };
 
-  const handleClose = () => {
-    setAnchorEl(null);
-  };
-
-  const handleDownloadExcel = () => {
+  const handleDelete = () => {
+    alert("Delete ")
     console.log("PaymentId:", idPayment);
     console.log("CommuntyId:", idCommunity);
-    handleClose();
-  };
-
-  const handleNotify = () => {
-    console.log("PaymentId:", idPayment);
-    console.log("CommuntyId:", idCommunity);
-    handleClose();
-  };
-
-  const handleShowBill = () => {
-    console.log("PaymentId:", idPayment);
-    console.log("CommuntyId:", idCommunity);
-    handleClose();
   };
 
   return (
     <span>
-      <Fab
-        size="small"
-        aria-controls="fade-menu"
-        aria-haspopup="true"
-        className={classes.root}
-        onClick={handleClick}
-        idPayment={idPayment}
-        month={month}
-        year={year}
-      >
-        <MoreVertRoundedIcon fontSize="small" />
-      </Fab>
-      <Menu
-        id="fade-menu"
-        anchorEl={anchorEl}
-        keepMounted
-        open={open}
-        onClose={handleClose}
-        TransitionComponent={Fade}
-      >
-        <MenuItem onClick={handleDownloadExcel}>Descargar excel</MenuItem>
-        <MenuItem onClick={handleNotify}>Notificar</MenuItem>
-
-        <MenuItem onClick={handleShowBill}>Ver</MenuItem>
-      </Menu>
+      <SmallDangerCircleTableBtn iconBtn={<DeleteRoundedIcon />} onClick={handleDelete}/>
     </span>
   );
 }
 
-FadeMenu.propTypes = {
+NotRecognizedPaymentsTableOptions.propTypes = {
   classes: PropTypes.object.isRequired
 };
 
-export default withStyles(styles)(FadeMenu);
+export default withStyles(styles)(NotRecognizedPaymentsTableOptions);
