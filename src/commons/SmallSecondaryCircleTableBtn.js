@@ -5,8 +5,8 @@ import Fab from "@material-ui/core/Fab";
 
 const styles = {
   root: {
-    color: "#6b6b6b",
-    border: "solid 1px #6b6b6b",
+    border: 'solid 1px #0ecb68',
+    color: '#0ecb68',
     backgroundColor: "#ffffff",
     boxShadow: "none",
     "&:hover": {

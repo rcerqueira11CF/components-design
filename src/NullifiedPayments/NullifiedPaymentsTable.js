@@ -8,6 +8,7 @@ import { createMuiTheme, MuiThemeProvider } from "@material-ui/core/styles";
 import NewPaymentModal from "../NewPaymentModal/PaymentModal";
 import NullifiedPaymentsTableOptions from "./NullifiedPaymentsTableOptions";
 import TableOptions from "./TableOptions";
+import SmallCircleTableBtn from "../commons/SmallCircleTableBtn"
 
 class CustomTable extends React.Component {
   constructor(props) {
