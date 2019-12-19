@@ -8,8 +8,8 @@ import MUIDataTable from "mui-datatables";
 // import PrintRoundedIcon from '@material-ui/icons/PrintRounded';
 import { createMuiTheme, MuiThemeProvider } from "@material-ui/core/styles";
 import NewPaymentModal from "../NewPaymentModal/PaymentModal";
-import RecaudationOption from "./RecaudationOptions";
-import RecaudationTableOptions from './RecaudationTableOptions'
+import MorosityOption from "./MorosityOptions";
+import MorosityTableOptions from './MorosityTableOptions'
 
 class CustomTable extends React.Component {
   constructor(props) {
@@ -55,7 +55,7 @@ class CustomTable extends React.Component {
       //     customHeadRender: ({index, ...column}) => {
       //       console.log(column)
       //       return (
-      //         <RecaudationOption />
+      //         <MorosityOption />
 
       //       )
       //     }
@@ -74,7 +74,7 @@ class CustomTable extends React.Component {
               <React.Fragment>
                 <span>
 
-                <RecaudationTableOptions
+                <MorosityTableOptions
                   idPayment={data[tableMeta.rowIndex][0]}
                   idCommunity={this.state.idCommunity}
                   />
@@ -156,7 +156,7 @@ class CustomTable extends React.Component {
       responsive: "scrollFullHeight",
       elevation: 0,
       customToolbar: () => {
-        return <RecaudationOption idCommunity={9} month={"02"} year={2019} />;
+        return <MorosityOption idCommunity={9} month={"02"} year={2019} />;
       }
     };
 

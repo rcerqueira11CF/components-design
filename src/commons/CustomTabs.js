@@ -61,7 +61,7 @@ const styles = {
   upperIndicator: {
     top: 0,
     backgroundColor: "#00c85f",
-    height: 2
+    height: 3
   },
   tabStyle: {
     fontFamily: "Montserrat",

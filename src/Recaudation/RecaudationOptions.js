@@ -113,11 +113,11 @@ function FadeMenu(props) {
         </MenuItem>
 
         <MenuItem onClick={handleImprimirBoletasCortas}>
-          Imprimirr boletas cortas
+          Imprimir boletas cortas
         </MenuItem>
 
         <MenuItem onClick={handleImprimirBoletasExtensas}>
-          Imprimirr boletas extensas
+          Imprimir boletas extensas
         </MenuItem>
 
         <MenuItem onClick={handleDeshacerGastoComun}>

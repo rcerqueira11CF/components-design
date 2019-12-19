@@ -5,10 +5,9 @@ import MUIDataTable from "mui-datatables";
 // import MultipleOptionsTableBtn from "../commons/MultipleOptionsTableBtn";
 // import DeleteForeverOutlinedIcon from "@material-ui/icons/DeleteForeverOutlined";
 import { createMuiTheme, MuiThemeProvider } from "@material-ui/core/styles";
-import NewPaymentModal from "../NewPaymentModal/PaymentModal";
 import NullifiedPaymentsTableOptions from "./NullifiedPaymentsTableOptions";
 import TableOptions from "./TableOptions";
-import SmallCircleTableBtn from "../commons/SmallCircleTableBtn"
+// import SmallCircleTableBtn from "../commons/SmallCircleTableBtn"
 
 class CustomTable extends React.Component {
   constructor(props) {
@@ -137,13 +136,13 @@ class CustomTable extends React.Component {
       }
     };
 
-    function headerIcons() {
-      return (
-        <React.Fragment>
-          <NewPaymentModal idCommunity={9} />
-        </React.Fragment>
-      );
-    }
+    // function headerIcons() {
+    //   return (
+    //     <React.Fragment>
+    //       <NewPaymentModal idCommunity={9} />
+    //     </React.Fragment>
+    //   );
+    // }
 
     return (
       <MuiThemeProvider theme={this.getMuiTheme()}>

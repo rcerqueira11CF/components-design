@@ -47,14 +47,16 @@ const styles = {
 //   }
 // ];
 
-const labels = ["Historial de pagos", "Recaudación", "Bases"];
+const labels = [
+  "Recaudación",
+  "Historial de pagos",
+  "Bases"];
 const content = [
+  <RecaudationTable idCommunity={7}/>,
   <PaymentHistory idCommunity={7} />,
-  <RecaudationTable />,
-  //<WTable />,
   <BaseComponents />
 ];
-//
+
 function App(props) {
   const { classes } = props;
   return (

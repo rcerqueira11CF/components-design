@@ -94,7 +94,7 @@ function PaymentHistory(props) {
       Recaudado los últimos meses
       <DynamicTab boxInfos={tabInfo} />
       <br />
-      <Paper elevation="0">
+      <Paper elevation={0}>
         <br />
         <div className={classes.paperContent}>
           <OptionFilterLink
