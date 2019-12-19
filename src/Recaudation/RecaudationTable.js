@@ -156,6 +156,10 @@ class CustomTable extends React.Component {
       filterType: "dropdown",
       responsive: "scrollFullHeight",
       elevation: 0,
+      filter: false,
+      print: false,
+      viewColumns: false,
+      download: false,
       customToolbar: () => {
         return (
         <TableOptions

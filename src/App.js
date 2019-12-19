@@ -22,7 +22,7 @@ const styles = {
     marginRight: "20px"
   },
   greyBar:{
-    height: "100%",
+    height: "1905px",
     backgroundColor: "#000000",
     width: "80px",
     float: "left",
