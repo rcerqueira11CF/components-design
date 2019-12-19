@@ -10,8 +10,10 @@ import { createMuiTheme, MuiThemeProvider } from "@material-ui/core/styles";
 import NewPaymentModal from "../NewPaymentModal/PaymentModal";
 import MorosityOption from "./MorosityOptions";
 import MorosityTableOptions from './MorosityTableOptions'
+import OptionFilterLink from "../commons/OptionFilterLink";
 
-class CustomTable extends React.Component {
+
+class CustomTable  extends React.Component {
   constructor(props) {
     super(props);
 
@@ -156,7 +158,18 @@ class CustomTable extends React.Component {
       responsive: "scrollFullHeight",
       elevation: 0,
       customToolbar: () => {
-        return <MorosityOption idCommunity={9} month={"02"} year={2019} />;
+        return <MorosityOption
+            idCommunity={9}
+            month={"02"}
+            year={2019}
+            tableSwitcher={
+              <OptionFilterLink
+                key="recaudationTable"
+                label="Tabla de recaudación"
+                onClick={this.props.tableSwitcher}
+              />
+            }
+          />;
       }
     };
 

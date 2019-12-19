@@ -6,6 +6,8 @@ import { withStyles } from "@material-ui/styles";
 import Fade from "@material-ui/core/Fade";
 import MoreVertRoundedIcon from "@material-ui/icons/MoreVertRounded";
 import Fab from "@material-ui/core/Fab";
+import OptionFilterLink from "../commons/OptionFilterLink";
+
 
 const styles = {
   root: {
@@ -14,7 +16,7 @@ const styles = {
     backgroundColor: "#ffffff",
     boxShadow: "none",
     "&:hover": {
-      backgroundColor: "eaeaea"
+      backgroundColor: "#eaeaea"
     },
     "&:disabled": {
       backgroundColor: "#ffffff",
@@ -31,10 +33,10 @@ const styles = {
   }
 };
 
-function FadeMenu(props) {
+function MorosityOptions(props) {
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
-  const { classes, idCommunity, month, year } = props;
+  const { classes, idCommunity, month, year, tableSwitcher } = props;
 
   const handleClick = event => {
     setAnchorEl(event.currentTarget);
@@ -83,53 +85,59 @@ function FadeMenu(props) {
 
   return (
     <span>
-      <Fab
-        size="small"
-        aria-controls="fade-menu"
-        aria-haspopup="true"
-        className={classes.root}
-        onClick={handleClick}
-        idCommunity={idCommunity}
-        month={month}
-        year={year}
-      >
-        <MoreVertRoundedIcon fontSize="small" />
-      </Fab>
-      <Menu
-        id="fade-menu"
-        anchorEl={anchorEl}
-        keepMounted
-        open={open}
-        onClose={handleClose}
-        TransitionComponent={Fade}
-      >
-        <MenuItem onClick={handleDescargarExcel}>Descargar excel </MenuItem>
-        <MenuItem onClick={handleImportarExcel}>Importar excel</MenuItem>
-        <MenuItem onClick={handleConsolidadoComprobantesPago}>
-          Consolidado de comprobantes de pago
+      <span>
+        <Fab
+          size="small"
+          aria-controls="fade-menu"
+          aria-haspopup="true"
+          className={classes.root}
+          onClick={handleClick}
+          idCommunity={idCommunity}
+          month={month}
+          year={year}
+        >
+          <MoreVertRoundedIcon fontSize="small" />
+        </Fab>
+        <Menu
+          id="fade-menu"
+          anchorEl={anchorEl}
+          keepMounted
+          open={open}
+          onClose={handleClose}
+          TransitionComponent={Fade}
+        >
+          <MenuItem onClick={handleDescargarExcel}>Descargar excel </MenuItem>
+          <MenuItem onClick={handleImportarExcel}>Importar excel</MenuItem>
+          <MenuItem onClick={handleConsolidadoComprobantesPago}>
+            Consolidado de comprobantes de pago
         </MenuItem>
-        <MenuItem onClick={handleDescargarPlanillaCobranzas}>
-          Descargar planilla de cobranzas
-        </MenuItem>
-
-        <MenuItem onClick={handleImprimirBoletasCortas}>
-          Imprimir boletas cortas
+          <MenuItem onClick={handleDescargarPlanillaCobranzas}>
+            Descargar planilla de cobranzas
         </MenuItem>
 
-        <MenuItem onClick={handleImprimirBoletasExtensas}>
-          Imprimir boletas extensas
+          <MenuItem onClick={handleImprimirBoletasCortas}>
+            Imprimir boletas cortas
         </MenuItem>
 
-        <MenuItem onClick={handleDeshacerGastoComun}>
-          Deshacer gasto común
+          <MenuItem onClick={handleImprimirBoletasExtensas}>
+            Imprimir boletas extensas
         </MenuItem>
-      </Menu>
+
+          <MenuItem onClick={handleDeshacerGastoComun}>
+            Deshacer gasto común
+        </MenuItem>
+        </Menu>
+      </span>
+      <span>
+        {tableSwitcher}
+
+      </span>
     </span>
   );
 }
 
-FadeMenu.propTypes = {
+MorosityOptions.propTypes = {
   classes: PropTypes.object.isRequired
 };
 
-export default withStyles(styles)(FadeMenu);
+export default withStyles(styles)(MorosityOptions);

@@ -5,7 +5,7 @@ import { withStyles } from "@material-ui/styles";
 // import MUITable from "./MUIDataTable";
 // import IconTable from "./IconDataTable";
 import PaymentHistory from "./PaymentHistory/PaymentHistory";
-import RecaudationTable from "./Recaudation/RecaudationTable";
+import ManageRecaudationPage from "./Recaudation/ManageRecaudationPage";
 // import WTable from "./WTable";
 import CustomTabs from "./commons/CustomTabs";
 // import LinksTabs from "./PaymentHistory/LinksTabs";
@@ -52,7 +52,7 @@ const labels = [
   "Historial de pagos",
   "Bases"];
 const content = [
-  <RecaudationTable idCommunity={7}/>,
+  <ManageRecaudationPage idCommunity={7}/>,
   <PaymentHistory idCommunity={7} />,
   <BaseComponents />
 ];
