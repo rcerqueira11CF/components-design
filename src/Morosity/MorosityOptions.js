@@ -46,92 +46,45 @@ function MorosityOptions(props) {
     setAnchorEl(null);
   };
 
-  const handleDescargarExcel = () => {
+  const handleDescargarExcelDeudaMorosidad = () => {
     console.log("month,year", month, year);
     handleClose();
 
     // month/year
   };
 
-  const handleImportarExcel = () => {
+  const handleDescargarCartasMorosidad = () => {
     console.log(idCommunity);
     handleClose();
   };
 
-  const handleConsolidadoComprobantesPago = () => {
-    console.log(idCommunity);
-    handleClose();
-  };
-
-  const handleDescargarPlanillaCobranzas = () => {
-    console.log(idCommunity);
-    handleClose();
-  };
-
-  const handleImprimirBoletasCortas = () => {
-    console.log(idCommunity);
-    handleClose();
-  };
-
-  const handleImprimirBoletasExtensas = () => {
-    console.log(idCommunity);
-    handleClose();
-  };
-
-  const handleDeshacerGastoComun = () => {
-    console.log(idCommunity);
-    handleClose();
-  };
 
   return (
     <span>
-      <span>
-        <Fab
-          size="small"
-          aria-controls="fade-menu"
-          aria-haspopup="true"
-          className={classes.root}
-          onClick={handleClick}
-          idCommunity={idCommunity}
-          month={month}
-          year={year}
-        >
-          <MoreVertRoundedIcon fontSize="small" />
-        </Fab>
-        <Menu
-          id="fade-menu"
-          anchorEl={anchorEl}
-          keepMounted
-          open={open}
-          onClose={handleClose}
-          TransitionComponent={Fade}
-        >
-          <MenuItem onClick={handleDescargarExcel}>Descargar excel </MenuItem>
-          <MenuItem onClick={handleImportarExcel}>Importar excel</MenuItem>
-          <MenuItem onClick={handleConsolidadoComprobantesPago}>
-            Consolidado de comprobantes de pago
-        </MenuItem>
-          <MenuItem onClick={handleDescargarPlanillaCobranzas}>
-            Descargar planilla de cobranzas
-        </MenuItem>
+      <Fab
+        size="small"
+        aria-controls="fade-menu"
+        aria-haspopup="true"
+        className={classes.root}
+        onClick={handleClick}
+        idCommunity={idCommunity}
+        month={month}
+        year={year}
+      >
+        <MoreVertRoundedIcon fontSize="small" />
+      </Fab>
+      <Menu
+        id="fade-menu"
+        anchorEl={anchorEl}
+        keepMounted
+        open={open}
+        onClose={handleClose}
+        TransitionComponent={Fade}
+      >
+        <MenuItem onClick={handleDescargarExcelDeudaMorosidad}>Descargar excel de deuda y morosidad </MenuItem>
+        <MenuItem onClick={handleDescargarCartasMorosidad}>Descargar cartas de morosidad</MenuItem>
 
-          <MenuItem onClick={handleImprimirBoletasCortas}>
-            Imprimir boletas cortas
-        </MenuItem>
-
-          <MenuItem onClick={handleImprimirBoletasExtensas}>
-            Imprimir boletas extensas
-        </MenuItem>
-
-          <MenuItem onClick={handleDeshacerGastoComun}>
-            Deshacer gasto común
-        </MenuItem>
-        </Menu>
-      </span>
-      <span>
-        {tableSwitcher}
-
-      </span>
+      </Menu>
     </span>
   );
 }

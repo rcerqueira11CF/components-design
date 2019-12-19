@@ -36,7 +36,7 @@ const styles = {
 function RecaudationOptions(props) {
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
-  const { classes, idCommunity, month, year, tableSwitcher } = props;
+  const { classes, idCommunity, month, year } = props;
 
   const handleClick = event => {
     setAnchorEl(event.currentTarget);
@@ -84,7 +84,6 @@ function RecaudationOptions(props) {
   };
 
   return (
-    <span>
       <span>
         <Fab
           size="small"
@@ -128,11 +127,6 @@ function RecaudationOptions(props) {
         </MenuItem>
         </Menu>
       </span>
-      <span>
-        {tableSwitcher}
-
-      </span>
-    </span>
   );
 }
 

@@ -8,7 +8,7 @@ import MUIDataTable from "mui-datatables";
 // import PrintRoundedIcon from '@material-ui/icons/PrintRounded';
 import { createMuiTheme, MuiThemeProvider } from "@material-ui/core/styles";
 import NewPaymentModal from "../NewPaymentModal/PaymentModal";
-import MorosityOption from "./MorosityOptions";
+import TableOptions from "./TableOptions";
 import MorosityTableOptions from './MorosityTableOptions'
 import OptionFilterLink from "../commons/OptionFilterLink";
 
@@ -158,7 +158,7 @@ class CustomTable  extends React.Component {
       responsive: "scrollFullHeight",
       elevation: 0,
       customToolbar: () => {
-        return <MorosityOption
+        return <TableOptions
             idCommunity={9}
             month={"02"}
             year={2019}

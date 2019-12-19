@@ -8,7 +8,7 @@ import MUIDataTable from "mui-datatables";
 // import PrintRoundedIcon from '@material-ui/icons/PrintRounded';
 import { createMuiTheme, MuiThemeProvider } from "@material-ui/core/styles";
 import NewPaymentModal from "../NewPaymentModal/PaymentModal";
-import RecaudationOption from "./RecaudationOptions";
+import TableOptions from "./TableOptions";
 import RecaudationTableOptions from './RecaudationTableOptions'
 import OptionFilterLink from "../commons/OptionFilterLink";
 
@@ -56,7 +56,7 @@ class CustomTable extends React.Component {
       //     customHeadRender: ({index, ...column}) => {
       //       console.log(column)
       //       return (
-      //         <RecaudationOption />
+      //         <TableOptions />
 
       //       )
       //     }
@@ -158,7 +158,7 @@ class CustomTable extends React.Component {
       elevation: 0,
       customToolbar: () => {
         return (
-        <RecaudationOption
+        <TableOptions
           idCommunity={9}
           month={"02"}
           year={2019}
