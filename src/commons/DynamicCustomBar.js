@@ -10,7 +10,8 @@ const styles = {
     padding: 16,
     display: "flex",
     alignItems: "center",
-    justifyContent: "space-around"
+    justifyContent: "space-around",
+    minHeight: "120px"
   }
 };
 

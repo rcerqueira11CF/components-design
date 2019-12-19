@@ -6,6 +6,7 @@ import DynamicTab from "../commons/DynamicCustomBar";
 import OptionFilterLink from "../commons/OptionFilterLink";
 import RecaudationTable from "./RecaudationTable"
 import MorosityTable from "../Morosity/MorosityTable"
+import GridTableTop from "./GridTableTop"
 
 // import LinksTabs from "./LinksTabs";
 require("typeface-montserrat");
@@ -39,17 +40,17 @@ const styles = {
 const tabInfo = [
   {
     id: "1",
-    titleText: "Diciembre",
+    titleText: "Total a cobrar",
     amountText: "$4.009.271"
   },
   {
     id: "2",
-    titleText: "Enero",
+    titleText: "Recaudado",
     amountText: "$6.783.210"
   },
   {
     id: "3",
-    titleText: "Febrero",
+    titleText: "Deuda Pendiente",
     amountText: "$5.892.000"
   }
 ];
@@ -84,8 +85,7 @@ function ManageRecaudationPage(props) {
   }
   return (
     <div>
-      Recaudado los últimos meses
-      <DynamicTab boxInfos={tabInfo} />
+      < GridTableTop secondGrid={<DynamicTab boxInfos={tabInfo} />}/>
       <br />
       <Paper elevation={0}>
         <div>

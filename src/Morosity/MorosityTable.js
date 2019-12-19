@@ -180,14 +180,14 @@ class CustomTable extends React.Component {
 
 
     return (
-      <MuiThemeProvider theme={this.getMuiTheme()}>
-        <MUIDataTable
-          title={""}
-          data={data}
-          columns={columns}
-          options={options}
-        />
-      </MuiThemeProvider>
+        <MuiThemeProvider theme={this.getMuiTheme()}>
+          <MUIDataTable
+            title={""}
+            data={data}
+            columns={columns}
+            options={options}
+          />
+        </MuiThemeProvider>
     );
   }
 }
