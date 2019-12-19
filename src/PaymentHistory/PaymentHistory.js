@@ -91,6 +91,7 @@ function PaymentHistory(props) {
   }
   return (
     <div>
+      Recaudado los últimos meses
       <DynamicTab boxInfos={tabInfo} />
       <br />
       <Paper elevation="0">

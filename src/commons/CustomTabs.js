@@ -37,17 +37,20 @@ function a11yProps(index) {
   };
 }
 
-function tabGenerator(label, index, classes){
-  var tabClass = index === 0 ? clsx(classes.tabStyle, classes.firstTab) : clsx(classes.tabStyle, classes.centerTab)
-  return (<Tab label={label} className={tabClass} {...a11yProps(index)} />);
+function tabGenerator(label, index, classes) {
+  var tabClass =
+    index === 0
+      ? clsx(classes.tabStyle, classes.firstTab)
+      : clsx(classes.tabStyle, classes.centerTab);
+  return <Tab label={label} className={tabClass} {...a11yProps(index)} />;
 }
 
-function tabContentGenerator(tabContent, value, index){
+function tabContentGenerator(tabContent, value, index) {
   return (
     <TabPanel value={value} index={index}>
       {tabContent}
-     </TabPanel>
-  )
+    </TabPanel>
+  );
 }
 
 const styles = {
@@ -59,45 +62,44 @@ const styles = {
     top: 0,
     backgroundColor: "#00c85f",
     height: 2
-    },
+  },
   tabStyle: {
     fontFamily: "Montserrat",
     fontSize: 18,
     fontWeight: "normal",
     fontStyle: "normal",
     fontStretch: "normal",
+    minWidth: 400,
+    width: 400,
     lineHeight: 0.5,
     letterSpacing: "normal",
     textTransform: "none",
     "&.Mui-selected": {
-      fontWeight: 'bold',
+      fontWeight: "bold"
     }
   },
   tabBar: {
     backgroundColor: "transparent",
-    borderBottom: '0.01em solid #eaeaea',
+    borderBottom: "0.01em solid #eaeaea"
   },
 
   firstTab: {
-    '&.Mui-selected': {
+    "&.Mui-selected": {
       borderRight: "0.01em solid #eaeaea",
-      borderBottom: "0.1em solid #ffffff",
-    },
-
+      borderBottom: "0.1em solid #F9F9F9"
+    }
   },
   centerTab: {
     "&.Mui-selected": {
       borderRight: "0.01em solid #eaeaea",
       borderLeft: "0.01em solid #eaeaea",
-      borderBottom: "0.1em solid #ffffff",
+      borderBottom: "0.1em solid #F9F9F9"
     }
-  },
+  }
 };
 
-
-
 function SimpleTabs(props) {
-  const { classes, tabLabels, tabContent, variant} = props;
+  const { classes, tabLabels, tabContent, variant } = props;
   const [value, setValue] = React.useState(0);
   const handleChange = (event, newValue) => {
     setValue(newValue);
@@ -113,17 +115,14 @@ function SimpleTabs(props) {
         className={classes.tabBar}
         variant={variant}
       >
-
-      {tabLabels.map((label, index) =>{
-        return (tabGenerator(label, index, classes))
-        })
-       }
+        {tabLabels.map((label, index) => {
+          return tabGenerator(label, index, classes);
+        })}
       </Tabs>
 
-      {tabContent.map((content, index) =>{
-        return (tabContentGenerator(content, value, index))
-        })
-       }
+      {tabContent.map((content, index) => {
+        return tabContentGenerator(content, value, index);
+      })}
     </div>
   );
 }

@@ -60,12 +60,11 @@ function App(props) {
   return (
     <div className={classes.root}>
       <Navbar />
-      <br/>
       <div className={classes.greyBar}>
-test
+        -
       </div>
       <div className={classes.marginContent}>
-
+        <br/>
         <CustomTabs tabLabels={labels} tabContent={content} />
       </div>
     </div>
