@@ -6,7 +6,7 @@ import Button from "@material-ui/core/Button";
 const styles = {
   root: {
     justifyContent: "center",
-    width: 100,
+    minWidth: 100,
     height: 30,
     borderRadius: 20,
     border: "solid 1px #0ecb68",

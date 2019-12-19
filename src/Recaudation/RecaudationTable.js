@@ -16,7 +16,9 @@ import OptionFilterLink from "../commons/OptionFilterLink";
 class CustomTable extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      idCommunity: this.props.idCommunity
+    };
   }
 
   getMuiTheme = () =>

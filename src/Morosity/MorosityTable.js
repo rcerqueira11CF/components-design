@@ -17,7 +17,9 @@ class CustomTable extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = {};
+    this.state = {
+      idCommunity: this.props.idCommunity
+    };
   }
 
   getMuiTheme = () =>
@@ -175,13 +177,7 @@ class CustomTable extends React.Component {
       }
     };
 
-    function headerIcons() {
-      return (
-        <React.Fragment>
-          <NewPaymentModal idCommunity={9} />
-        </React.Fragment>
-      );
-    }
+
 
     return (
       <MuiThemeProvider theme={this.getMuiTheme()}>

@@ -34,11 +34,13 @@ function MorosityTableOptions(props) {
   const { classes, idCommunity, idPayment, month, year } = props;
 
 
-  const handlePrint = () => {
-    alert("Print ")
-    console.log("PaymentId:", idPayment);
-    console.log("CommuntyId:", idCommunity);
+  const handleEntrar = () => {
+    alert("Entrar PaymentID: " + idPayment.toString() +" CommunityID: "+ idCommunity.toString())
   };
+
+  const handleDownload = () => {
+    alert("Download PaymentID: " + idPayment.toString() +" CommunityID: "+ idCommunity.toString())
+  }
 
   return (
 
@@ -46,13 +48,14 @@ function MorosityTableOptions(props) {
       <span>
         <SmallSecondaryBtn
           label={"Entrar"}
-          onClick={() => {
-            alert("Enter pago id: ", {idPayment})
-          }}
+          onClick={handleEntrar}
         />
       </span>
       <span>
-        <SmallSecondaryCircleTableBtn iconBtn={<PrintRoundedIcon />} onClick={handlePrint} />
+      <SmallSecondaryBtn
+          label={"Descargar"}
+          onClick={handleDownload}
+        />
       </span>
     </span>
   );
