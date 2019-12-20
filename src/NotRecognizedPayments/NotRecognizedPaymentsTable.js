@@ -66,7 +66,7 @@ class CustomTable extends React.Component {
           customBodyRender: (value, tableMeta, updateValue) => {
             return (
               <React.Fragment>
-                <SearchInputProps placeholder="Buscar" />
+                <SearchInputProps placeholder="Seleccionar unidad" />
                 {/* <NotRecognizedPaymentsTableOptions */}
                   {/* idPayment={data[tableMeta.rowIndex][0]} */}
                   {/* idCommunity={this.state.idCommunity} */}

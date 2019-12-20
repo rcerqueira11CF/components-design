@@ -162,6 +162,8 @@ class CustomTable extends React.Component {
       print: false,
       viewColumns: false,
       download: false,
+      search: false,
+      searchOpen: true,
       customToolbar: () => {
         return (
         <TableOptions
@@ -176,6 +178,9 @@ class CustomTable extends React.Component {
             />
           }
         />);
+      },
+      customSearch: () => {
+
       }
     };
 
