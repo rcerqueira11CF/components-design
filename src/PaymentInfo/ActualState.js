@@ -5,6 +5,7 @@ import DynamicCustomBar from "../commons/DynamicCustomBar";
 import NewPaymentForm from "./NewPaymentForm";
 import HeaderOptions from "./HeaderOptions";
 import Grid from "@material-ui/core/Grid";
+import PaymentInfoTable from "../PaymentInfoTable/PaymentInfoTable";
 require("typeface-montserrat");
 
 const styles = {
@@ -52,6 +53,7 @@ function ActualState(props) {
       </Grid>
 
       <NewPaymentForm />
+      <PaymentInfoTable />
     </div>
   );
 }
