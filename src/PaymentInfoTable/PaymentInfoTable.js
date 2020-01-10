@@ -91,7 +91,9 @@ export default function MaterialTableDemo() {
         actionsColumnIndex: -1,
         search: false,
         showTitle: false,
-        toolbar: false
+        toolbar: false,
+        detailPanelColumnAlignment: "right",
+        detailPanelType: "single"
       }}
       onRowClick={(event, rowData, togglePanel) => togglePanel()}
     />

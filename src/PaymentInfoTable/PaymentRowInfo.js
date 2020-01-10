@@ -84,35 +84,31 @@ function getRows(paymentID) {
         }
       ];
     default:
-      return [
-        {
-          id: 1,
-          assignedAmount: 1131,
-          date: "13/02/2019",
-          debtDescription:
-            "Gasto común febrero 2019 egresos + medidores + remuneraciones",
-          debtAmount: 65000,
-          debtBalance: 0
-        },
-        {
-          id: 36,
-          assignedAmount: 131,
-          date: "14/02/2019",
-          debtDescription:
-            "Gasto común febrero 2019 egresos + medidores + remuneraciones",
-          debtAmount: 65000,
-          debtBalance: 0
-        },
-        {
-          id: 22,
-          assignedAmount: 13441,
-          date: "14/02/2019",
-          debtDescription:
-            "Gasto común febrero 2019 egresos + medidores + remuneraciones",
-          debtAmount: 42000,
-          debtBalance: 22222
-        }
-      ];
+      return [];
+  }
+}
+
+function composeRows(rows, totalDebtAmount) {
+  if (rows.length <= 0) {
+    return <center>No hay información para mostrar</center>;
+  } else {
+    return (
+      <React.Fragment>
+        {rows.map(row => (
+          <TableRow key={row.desc}>
+            <TableCell align="right">{row.assignedAmount}</TableCell>
+            <TableCell>{row.date}</TableCell>
+            <TableCell>{row.debtDescription}</TableCell>
+            <TableCell align="right">{row.debtAmount}</TableCell>
+            <TableCell align="right">{row.debtBalance}</TableCell>
+          </TableRow>
+        ))}
+
+        <TableRow>
+          <TableCell align="right">{totalDebtAmount}</TableCell>
+        </TableRow>
+      </React.Fragment>
+    );
   }
 }
 
@@ -133,21 +129,7 @@ export default function SpanningTable(props) {
             <TableCell align="right">Saldo en deuda</TableCell>
           </TableRow>
         </TableHead>
-        <TableBody>
-          {rows.map(row => (
-            <TableRow key={row.desc}>
-              <TableCell align="right">{row.assignedAmount}</TableCell>
-              <TableCell>{row.date}</TableCell>
-              <TableCell>{row.debtDescription}</TableCell>
-              <TableCell align="right">{row.debtAmount}</TableCell>
-              <TableCell align="right">{row.debtBalance}</TableCell>
-            </TableRow>
-          ))}
-
-          <TableRow>
-            <TableCell align="right">{totalDebtAmount}</TableCell>
-          </TableRow>
-        </TableBody>
+        <TableBody>{composeRows(rows, totalDebtAmount)}</TableBody>
       </Table>
     </TableContainer>
   );

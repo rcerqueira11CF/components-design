@@ -6,6 +6,7 @@ import NewPaymentForm from "./NewPaymentForm";
 import HeaderOptions from "./HeaderOptions";
 import Grid from "@material-ui/core/Grid";
 import PaymentInfoTable from "../PaymentInfoTable/PaymentInfoTable";
+import DebtTable from "./DebtTable";
 require("typeface-montserrat");
 
 const styles = {
@@ -40,7 +41,20 @@ const tabInfo = [
 
 //
 function ActualState(props) {
-  const { classes } = props;
+  const { classes, paymentID } = props;
+  const [state, setState] = React.useState({
+    showDebTable: false
+  });
+
+  function showDebtTable() {
+    if (state.showDebTable) return <DebtTable paymentID={paymentID} />;
+  }
+
+  function toggleDebtTable() {
+    setState(prevState => ({
+      showDebTable: !prevState.showDebTable
+    }));
+  }
   return (
     <div className={classes.root}>
       <Grid container spacing={0}>
@@ -48,9 +62,10 @@ function ActualState(props) {
           <DynamicCustomBar boxInfos={tabInfo} />
         </Grid>
         <Grid item xs={1} className={classes.centerBtn}>
-          <HeaderOptions />
+          <HeaderOptions toggleAction={toggleDebtTable} />
         </Grid>
       </Grid>
+      {showDebtTable()}
 
       <NewPaymentForm />
       <PaymentInfoTable />

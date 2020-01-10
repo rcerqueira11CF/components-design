@@ -28,11 +28,11 @@ const styles = {
 //   }
 // ];
 
-const labels = ["Estado actual", "Historial"];
-const content = [<ActualState />, "Historial"];
 //
 function PaymentInfo(props) {
-  const { classes } = props;
+  const { classes, paymentID } = props;
+  const labels = ["Estado actual", "Historial"];
+  const content = [<ActualState paymentID={paymentID} />, "Historial"];
   return (
     <div className={classes.root}>
       <CustomBlueTabs tabLabels={labels} tabContent={content} />

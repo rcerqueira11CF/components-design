@@ -34,7 +34,7 @@ const styles = {
 function FadeMenu(props) {
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
-  const { classes, idCommunity, idPayment, month, year } = props;
+  const { classes, idCommunity, idPayment, month, year, toggleAction } = props;
 
   const handleClick = event => {
     setAnchorEl(event.currentTarget);
@@ -47,6 +47,7 @@ function FadeMenu(props) {
   const handleVerDeudas = () => {
     console.log("PaymentId:", idPayment);
     console.log("CommuntyId:", idCommunity);
+    toggleAction();
     handleClose();
   };
 
