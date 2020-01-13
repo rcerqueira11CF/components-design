@@ -39,7 +39,6 @@ const tabInfo = [
   }
 ];
 
-//
 function ActualState(props) {
   const { classes, paymentID } = props;
   const [state, setState] = React.useState({
@@ -47,7 +46,8 @@ function ActualState(props) {
   });
 
   function showDebtTable() {
-    if (state.showDebTable) return <DebtTable paymentID={paymentID} />;
+    if (state.showDebTable)
+      return <DebtTable paymentID={paymentID} handleClose={toggleDebtTable} />;
   }
 
   function toggleDebtTable() {

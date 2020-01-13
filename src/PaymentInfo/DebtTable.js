@@ -6,6 +6,7 @@ import TableCell from "@material-ui/core/TableCell";
 import TableContainer from "@material-ui/core/TableContainer";
 import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
+import CloseIcon from "@material-ui/icons/Close";
 
 const useStyles = makeStyles({
   table: {
@@ -85,16 +86,27 @@ function getRows(paymentID) {
 
 export default function SpanningTable(props) {
   const classes = useStyles();
-  const { paymentID } = props;
+  const { paymentID, handleClose } = props;
   const rows = getRows(paymentID);
   return (
     <TableContainer>
       <Table className={classes.table} aria-label="spanning table">
         <TableHead>
           <TableRow>
-            <TableCell align="left">
+            <TableCell align="left" colSpan={5}>
               <b>Deudas</b>
             </TableCell>
+            <div
+              onClick={handleClose}
+              style={{
+                float: "right",
+                cursor: "pointer",
+                marginTop: "5px",
+                marginRight: "5px"
+              }}
+            >
+              <CloseIcon />
+            </div>
           </TableRow>
           <TableRow>
             <TableCell> Descripción </TableCell>

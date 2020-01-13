@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import { withStyles } from "@material-ui/styles";
 import CustomBlueTabs from "../commons/CustomBlueTabs";
 import ActualState from "./ActualState";
+import HeaderInfo from "./HeaderInfo";
 require("typeface-montserrat");
 
 const styles = {
@@ -35,6 +36,7 @@ function PaymentInfo(props) {
   const content = [<ActualState paymentID={paymentID} />, "Historial"];
   return (
     <div className={classes.root}>
+      <HeaderInfo />
       <CustomBlueTabs tabLabels={labels} tabContent={content} />
     </div>
   );
