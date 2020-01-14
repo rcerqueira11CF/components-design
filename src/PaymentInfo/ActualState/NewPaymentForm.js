@@ -12,12 +12,12 @@ import {
   MuiPickersUtilsProvider,
   KeyboardDatePicker
 } from "@material-ui/pickers";
-import BlueCheckBox from "../commons/BlueCheckBox";
+import BlueCheckBox from "../../commons/BlueCheckBox";
 import "date-fns";
 import DateFnsUtils from "@date-io/date-fns";
-import PrincipalBtn from "../commons/PrincipalBtn";
-import SecondaryBtn from "../commons/SecondaryBtn";
-import SmallBlueBtn from "../commons/SmallBlueBtn";
+import PrincipalBtn from "../../commons/PrincipalBtn";
+import SecondaryBtn from "../../commons/SecondaryBtn";
+import SmallBlueBtn from "../../commons/SmallBlueBtn";
 import clsx from "clsx";
 
 const useStyles = makeStyles(theme => ({

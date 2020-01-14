@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import { withStyles } from "@material-ui/styles";
 import CustomBlueTabs from "../commons/CustomBlueTabs";
-import ActualState from "./ActualState";
+import ActualState from "./ActualState/ActualState";
 import HeaderInfo from "./HeaderInfo";
 require("typeface-montserrat");
 

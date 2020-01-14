@@ -1,11 +1,11 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { withStyles } from "@material-ui/styles";
-import DynamicCustomBar from "../commons/DynamicCustomBar";
+import DynamicCustomBar from "../../commons/DynamicCustomBar";
 import NewPaymentForm from "./NewPaymentForm";
 import HeaderOptions from "./HeaderOptions";
 import Grid from "@material-ui/core/Grid";
-import PaymentInfoTable from "../PaymentInfoTable/PaymentInfoTable";
+import PaymentInfoTable from "./PaymentInfoTable";
 import DebtTable from "./DebtTable";
 require("typeface-montserrat");
 
