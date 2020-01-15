@@ -18,7 +18,10 @@ function CommonExpensePayments(props) {
 
   function handleCheckedChange() {
     setState(prevState => ({
-      checkedNoNullifiedPaymentsInBill: !prevState.checkedNoNullifiedPaymentsInBill
+      checkedNoNullifiedPaymentsInBill: !prevState.checkedNoNullifiedPaymentsInBill,
+      tableKey: state.checkedNoNullifiedPaymentsInBill
+        ? "hideHistoryBillWithNullifiedPayments"
+        : "showHistoryBillWithNullifiedPayments"
     }));
   }
 
@@ -33,6 +36,7 @@ function CommonExpensePayments(props) {
       </div>
       <div>
         <CommonExpensePaymentsTable
+          key={state.tableKey}
           showNullifiedPayments={state.checkedNoNullifiedPaymentsInBill}
         />
       </div>

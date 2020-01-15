@@ -86,12 +86,12 @@ class MaterialTableDemo extends Component {
 
   refreshTableData = res => this.setState({ data: res });
 
-  componentWillReceiveProps(props) {
-    const { showNullifiedPayments } = this.props;
-    if (props.showNullifiedPayments !== showNullifiedPayments) {
-      this.fetchDataTable(showNullifiedPayments).then(this.refreshTableData);
-    }
-  }
+  // componentWillReceiveProps(props) {
+  //   const { showNullifiedPayments } = this.props;
+  //   if (props.showNullifiedPayments !== showNullifiedPayments) {
+  //     this.fetchDataTable(showNullifiedPayments).then(this.refreshTableData);
+  //   }
+  // }
 
   handleDownloadExcel = paymentID => {
     alert("Download " + paymentID);
