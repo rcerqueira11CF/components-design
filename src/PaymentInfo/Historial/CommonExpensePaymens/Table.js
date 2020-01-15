@@ -3,7 +3,7 @@ import MaterialTable from "material-table";
 import SmallCircleTableBtn from "../../../commons/SmallCircleTableBtn";
 import GetAppRoundedIcon from "@material-ui/icons/GetAppRounded";
 
-class MaterialTableDemo extends React.Component {
+class MaterialTableDemo extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -19,24 +19,7 @@ class MaterialTableDemo extends React.Component {
         { title: "Descripción ", field: "description", editable: "never" },
         { title: "Saldo", field: "balance", type: "numeric", editable: "never" }
       ],
-      data: [
-        {
-          paymentID: 1,
-          date: "13/02/2019",
-          property_fine: 12,
-          payment: 11331,
-          description: "Pago por efectivo, folio: 222 - Pagado el: 27 jul 2019",
-          balance: 1232
-        },
-        {
-          paymentID: 44,
-          date: "14/02/2019",
-          property_fine: 434,
-          payment: 13441,
-          description: "Pago por efectivo, folio: 222 - Pagado el: 27 jul 2019",
-          balance: 1932
-        }
-      ]
+      data: []
     };
   }
 
@@ -105,9 +88,9 @@ class MaterialTableDemo extends React.Component {
 
   componentWillReceiveProps(props) {
     const { showNullifiedPayments } = this.props;
-    // (props.showNullifiedPayments !== showNullifiedPayments) {
-    this.fetchDataTable(showNullifiedPayments).then(this.refreshTableData);
-    //}//
+    if (props.showNullifiedPayments !== showNullifiedPayments) {
+      this.fetchDataTable(showNullifiedPayments).then(this.refreshTableData);
+    }
   }
 
   handleDownloadExcel = paymentID => {
