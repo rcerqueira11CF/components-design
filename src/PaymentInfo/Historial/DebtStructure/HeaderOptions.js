@@ -14,38 +14,38 @@ const styles = {
     marginBottom: "30px"
   },
   filterStyle: {
-    float: "left"
+    float: "left",
+    display: "flex",
+    justifyContent: "center"
   },
   buttonsStyle: {
     display: "flex",
     float: "right",
     justifyContent: "center"
+  },
+  buttonSpace: {
+    marginLeft: "15px"
   }
 };
 
+function handleDownloadExcel(paymentID) {
+  alert("Download excel paymentID" + paymentID);
+}
+
 function HeaderOptions(props) {
-  const { classes, paymentID, handleClose, checkedState, handleCheck } = props;
+  const { classes, paymentID, periodsWithDebts } = props;
 
   return (
     <div className={classes.root}>
       <div className={classes.filterStyle}>
-        <FormControlLabel
-          control={
-            <CustomCheckBox
-              checked={checkedState}
-              onChange={() => handleCheck("checkedNoNullifiedPaymentsInBill")}
-              value="checkedNoNullifiedPaymentsInBill"
-            />
-          }
-          label="Cartola sin pagos anulados"
-        />
+        Períodos que presentan deudas: {periodsWithDebts}
       </div>
       <div className={classes.buttonsStyle}>
         <span>
-          <SecondaryBtn label={"Descargar pdf"} />
-        </span>
-        <span>
-          <SecondaryBtn label={"Descargar excel"} />
+          <SecondaryBtn
+            label={"Descargar excel"}
+            onClick={() => handleDownloadExcel(paymentID)}
+          />
         </span>
       </div>
       <br />
