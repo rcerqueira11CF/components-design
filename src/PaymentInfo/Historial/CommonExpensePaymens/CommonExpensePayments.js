@@ -12,14 +12,29 @@ const styles = {
 
 function CommonExpensePayments(props) {
   const { classes, paymentID } = props;
+  const [state, setState] = React.useState({
+    checkedNoNullifiedPaymentsInBill: false
+  });
+
+  function handleCheckedChange() {
+    setState(prevState => ({
+      checkedNoNullifiedPaymentsInBill: !prevState.checkedNoNullifiedPaymentsInBill
+    }));
+  }
 
   return (
     <div className={classes.root}>
       <div>
-        <HeaderOptions paymentID={paymentID} />
+        <HeaderOptions
+          paymentID={paymentID}
+          checkedState={state.checkedNoNullifiedPaymentsInBill}
+          handleCheck={handleCheckedChange}
+        />
       </div>
       <div>
-        <CommonExpensePaymentsTable />
+        <CommonExpensePaymentsTable
+          showNullifiedPayments={state.checkedNoNullifiedPaymentsInBill}
+        />
       </div>
     </div>
   );
