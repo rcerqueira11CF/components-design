@@ -5,6 +5,8 @@ import { withStyles } from "@material-ui/styles";
 
 import OptionFilterLink from "../../commons/subCommons/OptionFilterLink";
 import CommonExpensePayment from "./CommonExpensePaymens/CommonExpensePayments";
+import PaymentAssignment from "./PaymentAssignment/PaymentAssignment";
+import DebtStructure from "./DebtStructure/DebtStructure";
 
 // import LinksTabs from "./LinksTabs";
 require("typeface-montserrat");
@@ -17,20 +19,13 @@ const styles = {
   },
   paperContent: {
     padding: 16,
-    //paddingBottom: 16,
-    //display: "flex",
-    //alignItems: "center",
-    //justifyContent: "space-evenly",
-    //backgroundColor: "#ffffff"
     display: "flex",
     alignItems: "center",
-    justifyContent: "center",
-    //backgroundColor: '#ffffff',
+    justifyContent: "space-between",
     boxShadow: "none"
   },
   linkContainer: {
     display: "flex",
-    //paddingBottom: 16,
     alignItems: "center"
   }
 };
@@ -46,7 +41,6 @@ function PaymentHistory(props) {
   });
 
   function toggleLinks(link) {
-    //alert("interests")
     setState({
       commonExpensesPayments: false,
       paymentAssignment: false,
@@ -64,10 +58,10 @@ function PaymentHistory(props) {
   function showTable() {
     if (state.commonExpensesPayments)
       return <CommonExpensePayment idCommunity={idCommunity} />;
-    // if (state.paymentAssignment)
-    //   return <NotNotifiedPaymentsTable idCommunity={idCommunity} />;
-    // if (state.debtStructure)
-    //   return <NotRecognizedPaymentsTable idCommunity={idCommunity} />;
+    if (state.paymentAssignment)
+      return <PaymentAssignment idCommunity={idCommunity} />;
+    if (state.debtStructure)
+      return <DebtStructure idCommunity={idCommunity} paymentID={2} />;
     // if (state.interests)
     //   return <NullifiedPaymentsTable idCommunity={idCommunity} />;
   }
@@ -77,7 +71,7 @@ function PaymentHistory(props) {
         <div className={classes.paperContent}>
           <OptionFilterLink
             key="commonExpensesPayments"
-            label="Todos los pagos"
+            label="Gastos comunes y pagos"
             active={state.commonExpensesPayments}
             onClick={() => {
               toggleLinks("commonExpensesPayments");
@@ -85,7 +79,7 @@ function PaymentHistory(props) {
           />
           <OptionFilterLink
             key="paymentAssignment"
-            label="Pagos no notificados"
+            label="Asignación de pagos"
             active={state.paymentAssignment}
             onClick={() => {
               toggleLinks("paymentAssignment");
@@ -93,7 +87,7 @@ function PaymentHistory(props) {
           />
           <OptionFilterLink
             key="debtStructure"
-            label="Pagos no reconocidos"
+            label="Estructura de deuda"
             active={state.debtStructure}
             onClick={() => {
               toggleLinks("debtStructure");
@@ -101,7 +95,7 @@ function PaymentHistory(props) {
           />
           <OptionFilterLink
             key="interests"
-            label="Pagos anulados"
+            label="Intereses y multas"
             active={state.interests}
             onClick={() => {
               toggleLinks("interests");

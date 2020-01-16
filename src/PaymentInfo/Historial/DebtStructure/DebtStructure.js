@@ -31,7 +31,9 @@ function DebtStructure(props) {
           periodsWithDebts={periodsWithDebts}
         />
       </div>
-      <div>{/* <DebtStructureTable /> */}</div>
+      <div>
+        <DebtStructureTable />
+      </div>
     </div>
   );
 }
